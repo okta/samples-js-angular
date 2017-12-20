@@ -1,0 +1,42 @@
+{
+  "name": "okta-hosted-login",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "test": "echo 'Tests not yet implemented' && exit 1",
+    "lint": "ng lint",
+    "postinstall": "node post-install.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "@angular/compiler": "^5.0.0",
+    "@angular/core": "^5.0.0",
+    "@angular/forms": "^5.0.0",
+    "@angular/http": "^5.0.0",
+    "@angular/platform-browser": "^5.0.0",
+    "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/router": "^5.0.0",
+    "@okta/okta-angular": "0.0.13",
+    "@okta/okta-signin-widget": "^2.5.0",
+    "colors": "^1.1.2",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.5.2",
+    "semantic-ui-css": "^2.2.12",
+    "zone.js": "^0.8.14"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.6.1",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/language-service": "^5.0.0",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "ts-node": "~3.2.0",
+    "tslint": "~5.7.0",
+    "typescript": "~2.4.2"
+  }
+}

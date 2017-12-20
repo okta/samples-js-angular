@@ -1,0 +1,33 @@
+<h1 class="ui header">Custom Login Page with Sign In Widget</h1>
+<div *ngIf="!oktaAuth.isAuthenticated()">
+  <p>If you‘re viewing this page then you have successfully started this Angular application.</p>
+  <p>This example shows you how to use the
+    <a href="https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular">Okta Angular Library</a>
+    and the
+    <a href="https://github.com/okta/okta-signin-widget">Okta Sign-In Widget</a>
+    to add the
+    <a href="https://developer.okta.com/authentication-guide/implementing-authentication/implicit">Implicit Flow</a>
+    to your application.
+    This combination is useful when you want to leverage the features of the Sign-In Widget, and the authentication helper components from the okta-angular module.
+  </p>
+  <p>
+    Once you have logged in you will be redirected through your authorization server (the issuer defined in config) to create a session for Single-Sign-On (SSO).
+    After this you will be redirected back to the application with an ID Token and Access Token. The tokens will be stored in local storage for future use.
+  </p>
+  <button id="login-button" class="ui primary button" role="button" routerLink="/login">Login</button>
+</div>
+
+<div *ngIf="oktaAuth.isAuthenticated()">
+  <p>Welcome back, {{idToken.claims.name}}!</p>
+  <p>
+    You have successfully authenticated against your Okta org, and have been redirected back to this application.  You now have an ID Token and access token in local storage.
+    Visit the <a href="/profile">My Profile</a> page to take a look inside the ID Token.
+  </p>
+  <h3>Next Steps</h3>
+  <p>Currently this application is a stand-alone front end application.  At this point you can use the access token to authenticate yourself against resource servers that you control.</p>
+  <p>This sample is designed to work with one of our resource server examples.  To see access token authentication in action, please download one of these resource server examples:</p>
+  <ul>
+    <li *ngFor="let example of resourceServerExamples"><a href="{{example.url}}">{{example.label}}</a></li>
+  </ul>
+  <p>Once you have downloaded and started the example resource server, you can visit the <a href="/messages">My Messages</a> page to see the authentication process in action.</p>
+</div>
