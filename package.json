@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "description": "Angular Sample Applications for Okta",
   "scripts": {
-
+    "test": "npm run test:e2e",
+    "okta-hosted-login-server": "npm start --prefix okta-hosted-login/",
+    "test:okta-hosted-login": "protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
+    "custom-login-server": "npm start --prefix custom-login/",
+    "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
+    "test:e2e": "npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
+    "get-oidc-tck": "[ ! -d okta-oidc-tck/ ] && git clone https://github.com/okta/okta-oidc-tck.git || echo \"TCK already cloned\"",
+    "pretest": "webdriver-manager update --gecko false"
   },
   "author": "",
   "license": "Apache-2.0",
@@ -14,7 +21,10 @@
   "bugs": "https://github.com/okta/samples-js-angular/issues",
   "homepage": "https://github.com/okta/samples-js-angular",
   "devDependencies": {
-
+    "forever-monitor": "1.7.1",
+    "jasmine-reporters": "2.2.0",
+    "protractor": "^5.1.0",
+    "wait-on": "2.0.2"
   },
   "bin": {},
   "dependencies": {},
