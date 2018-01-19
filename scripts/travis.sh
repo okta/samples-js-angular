@@ -7,5 +7,5 @@ cd okta-hosted-login
 npm install
 cd ..
 
-sh scripts/update-samples-config.sh
+sh scripts/setup-env.sh
 npm test

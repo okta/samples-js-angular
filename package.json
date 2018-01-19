@@ -8,7 +8,8 @@
     "test:okta-hosted-login": "protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
     "custom-login-server": "npm start --prefix custom-login/",
     "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
-    "test:e2e": "npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
+    "resource-server": "mvn -Dokta.oauth2.issuer=$OKTA_OAUTH2_ISSUER -f samples-java-spring-mvc/resource-server/pom.xml",
+    "test:e2e": "export TEST_TYPE=implicit && npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
     "get-oidc-tck": "[ ! -d okta-oidc-tck/ ] && git clone https://github.com/okta/okta-oidc-tck.git || echo \"TCK already cloned\"",
     "pretest": "webdriver-manager update --gecko false"
   },
