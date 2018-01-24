@@ -4,6 +4,7 @@
   "description": "Angular Sample Applications for Okta",
   "scripts": {
     "test": "npm run test:e2e",
+    "postinstall": "npm install --prefix okta-hosted-login && npm install --prefix custom-login",
     "okta-hosted-login-server": "npm start --prefix okta-hosted-login/",
     "test:okta-hosted-login": "protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
     "custom-login-server": "npm start --prefix custom-login/",

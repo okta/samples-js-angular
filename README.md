@@ -18,15 +18,10 @@ Please find the sample that fits your use-case from the table below.
 
 E2E Tests will be run against the Custom Login and Okta-Hosted Login servers.
 
-In addition to running npm install in the root of the project (to install the dev dependencies for testing), you will also need to install the dependencies of each library.
+Run npm install in the root of the project (to install the dev dependencies for testing). This will also install the dependencies for the Custom Login and Okta-Hosted Login servers.
 
 ```bash
 npm install
-cd okta-hosted-login
-npm install
-cd ../custom-login
-npm install
-cd ..
 ```
 Then you need to setup the following environment variables.
 
