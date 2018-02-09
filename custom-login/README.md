@@ -52,13 +52,19 @@ Now start the app server:
 ng serve
 ```
 
+>  **Note:** If you're on a windows machine, you might get an error similar to
+> `ng serve contains error Unknown browser query basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")`
+>
+> It's a [known issue](https://github.com/angular/angular-cli/issues/5075) on windows due to one of the dependencies we use. To resolve the issue, search for browserslist and browserslist.cmd files in your node_modules. Delete both the files and start the app server again.
+
+
 Now navigate to http://localhost:8080 in your browser.
 
 If you see a home page that prompts you to login, then things are working!  Clicking the **Log in** button will render a custom login page component that uses the Okta Sign-In Widget to perform authentication.
 
 You can login with the same account that you created when signing up for your Developer Org, or you can use a known username and password from your Okta Directory.
 
-**Note:** If you are currently using your Developer Console, you already have a Single Sign-On (SSO) session for your Org.  You will be automatically logged into your application as the same user that is using the Developer Console.  You may want to use an incognito tab to test the flow from a blank slate.
+> **Note:** If you are currently using your Developer Console, you already have a Single Sign-On (SSO) session for your Org.  You will be automatically logged into your application as the same user that is using the Developer Console.  You may want to use an incognito tab to test the flow from a blank slate.
 
 
 ## Integrating The Resource Server
