@@ -5,11 +5,11 @@
   "scripts": {
     "test": "npm run test:e2e",
     "okta-hosted-login-server": "npm start --prefix okta-hosted-login/",
-    "test:okta-hosted-login": "protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
+    "test:okta-hosted-login": "export TEST_TYPE=implicit && protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
     "custom-login-server": "npm start --prefix custom-login/",
-    "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
+    "test:custom-login": "export TEST_TYPE=implicit && protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
     "resource-server": "mvn -Dokta.oauth2.issuer=https://${OKTA_DOMAIN}.com/oauth2/default -f samples-java-spring-mvc/resource-server/pom.xml",
-    "test:e2e": "cross-env TEST_TYPE=implicit && npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
+    "test:e2e": "export TEST_TYPE=implicit && npm run get-oidc-tck && npm run test:okta-hosted-login && npm run test:custom-login",
     "get-oidc-tck": "[ ! -d okta-oidc-tck/ ] && git clone https://github.com/okta/okta-oidc-tck.git || echo \"TCK already cloned\"",
     "pretest": "webdriver-manager update --gecko false",
     "postinstall": "npm run install-custom-login && npm run install-okta-hosted-login",
@@ -25,7 +25,6 @@
   "bugs": "https://github.com/okta/samples-js-angular/issues",
   "homepage": "https://github.com/okta/samples-js-angular",
   "devDependencies": {
-    "cross-env": "^5.1.1",
     "forever-monitor": "1.7.1",
     "jasmine-reporters": "2.2.0",
     "protractor": "^5.1.0",
