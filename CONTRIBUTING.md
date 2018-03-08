@@ -54,10 +54,8 @@ npm install
 ```
 To test both samples you will need the following configured in your developer org:
 
-* A SPA application
+* [A SPA Application](/okta-hosted-login#prerequisites)
 * A test user account with a known username and password. Note that the USERNAME should be of the form "username@email.com"
-
-Then you need to setup the following environment variables
 
 Once you have those resources setup, export their details as the following environment variables:
 
