@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sh scripts/setup-env.sh
+node scripts/setup-env.js
 npm test

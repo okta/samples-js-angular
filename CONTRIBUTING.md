@@ -42,8 +42,6 @@ If you do not see an exact emoji match, use the best matching emoji.
 
 ## Running E2E Tests locally before commits
 
-> **NOTE:** Due to some dependencies in the shell script, the E2E tests will not run on windows. You can test your code on *nix based machines before commiting.
-
 E2E Tests can be run against the Custom Login and Okta-Hosted Login servers
 
 In addition to running npm install in the root of the project (to install the dev dependencies for testing), you will also need to install the dependencies of each sample app. This can be performed via the `npm install` command:
@@ -66,14 +64,23 @@ export USERNAME={userName}
 export PASSWORD={password}
 ```
 
-After setting up the environment variables, run this script to copy the configuration into the JSON configuration files:
+For Windows, please set the following environment variables - ISSUER, CLIENT_ID, USER_NAME, PASSWORD
 
-```bash
-sh scripts/setup-env.sh
+> **NOTE:** Windows has USERNAME as a built-in system variable, hence set the USER_NAME environment variable for testing.
+
+After setting up the environment variables, run this node script to copy the configuration into the JSON configuration files:
+
+```
+node scripts/setup-env.js
 ```
 
-Then run the E2E tests:
+If you're on a *nix based machine, run the E2E tests:
 
 ```bash
 npm test
+```
+
+If you're on Windows, run the following command:
+```bash
+npm run test-windows
 ```
