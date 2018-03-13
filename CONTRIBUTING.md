@@ -74,8 +74,8 @@ Then run the E2E tests:
 npm test
 ```
 
-> **NOTE:** If you want to execute individual tests such as `npm run test:okta-hosted-login`, you will need to update the enviroment by running the following node script
->
-> ```
-> node scripts/setup-env.js
-> ```
+**NOTE:** If you want to execute individual tests such as `npm run test:okta-hosted-login`, you will need to update the environment by running the following node script:
+
+```
+node scripts/setup-env.js
+```
