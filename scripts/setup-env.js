@@ -1,46 +1,40 @@
-let fs = require('fs')
-let exec = require('child_process').exec;
+/* eslint-disable consistent-return, no-console */
 
-if (process.env.ISSUER === undefined || process.env.CLIENT_ID === undefined) {
-	console.log("[ERROR] Please set the ISSUER and CLIENT_ID Environment variables");
-	return;
-}
-
-updateConfig("custom-login");
-updateConfig("okta-hosted-login");
-cloneRepository("https://github.com/okta/samples-java-spring-mvc.git", "samples-java-spring-mvc");
-cloneRepository("https://github.com/okta/okta-oidc-tck.git", "okta-oidc-tck");
+const fs = require('fs');
+const { exec } = require('child_process');
+const path = require('path');
 
 function updateConfig(directory) {
-    let file = __dirname + "/../" + directory + "/src/app/.samples.config.ts"
-	fs.readFile(file, 'utf8', function (err,data) {
-	  if (err) {
-	    return console.log(err);
-	  }
-	  let result = data.replace(/{clientId}/g, process.env.CLIENT_ID);
-	  result = result.replace(/https:\/\/{yourOktaDomain}.com\/oauth2\/default/g, process.env.ISSUER);
+  if (process.env.ISSUER === undefined || process.env.CLIENT_ID === undefined) {
+    console.log('[ERROR] Please set the ISSUER and CLIENT_ID Environment variables');
+    return;
+  }
 
-	  fs.writeFile(file, result, 'utf8', function (err) {
-	     if (err) return console.log(err);
-	  });
-	});
+  const file = path.join(__dirname, '/../', directory, '/src/app/.samples.config.ts');
+  const data = fs.readFileSync(file, 'utf8');
+  let result = data.replace(/{clientId}/g, process.env.CLIENT_ID);
+  result = result.replace(/https:\/\/{yourOktaDomain}.com\/oauth2\/default/g, process.env.ISSUER);
+  fs.writeFileSync(file, result, 'utf8');
 }
 
-function cloneRepository(repository, directory){
-    let dir = __dirname + '/../' + directory;
-    if (fs.existsSync(dir)) {
-	    console.log(directory + " is already cloned.");
-	    return;
+function cloneRepository(repository, directory) {
+  const dir = path.join(__dirname, '/../', directory);
+  if (fs.existsSync(dir)) {
+    console.log(`${directory} is already cloned.`);
+    return;
+  }
+
+  const command = `git clone ${repository}`;
+  console.log(`Cloning repository ${directory}`);
+  exec(command, (err, stdout) => {
+    if (err !== null) {
+      return console.error(err);
     }
-
-    let command = "git clone " + repository;
-
-    console.log("Cloning repository " + directory);
-    let child = exec(command, function(err, stdout, stderr){
-        if(err != null){
-            return console.log(err);
-        } else {
-            return console.log(stdout);
-        }
-    });
+    return console.log(stdout);
+  });
 }
+
+updateConfig('custom-login');
+updateConfig('okta-hosted-login');
+cloneRepository('https://github.com/okta/samples-java-spring-mvc.git', 'samples-java-spring-mvc');
+cloneRepository('https://github.com/okta/okta-oidc-tck.git', 'okta-oidc-tck');

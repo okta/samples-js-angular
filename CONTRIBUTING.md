@@ -68,19 +68,14 @@ For Windows, please set the following environment variables - ISSUER, CLIENT_ID,
 
 > **NOTE:** Windows has USERNAME as a built-in system variable, hence set the USER_NAME environment variable for testing.
 
-After setting up the environment variables, run this node script to copy the configuration into the JSON configuration files:
-
-```
-node scripts/setup-env.js
-```
-
-If you're on a *nix based machine, run the E2E tests:
+Then run the E2E tests:
 
 ```bash
 npm test
 ```
 
-If you're on Windows, run the following command:
-```bash
-npm run test-windows
-```
+> **NOTE:** If you want to execute individual tests such as `npm run test:okta-hosted-login`, you will need to update the enviroment by running the following node script
+>
+> ```
+> node scripts/setup-env.js
+> ```
