@@ -64,7 +64,11 @@ export USERNAME={userName}
 export PASSWORD={password}
 ```
 
-For Windows, please set the following environment variables - ISSUER, CLIENT_ID, USER_NAME, PASSWORD
+For Windows, please set the following environment variables:
+- ISSUER
+- CLIENT_ID
+- USER_NAME
+- PASSWORD
 
 > **NOTE:** Windows has USERNAME as a built-in system variable, hence set the USER_NAME environment variable for testing.
 
@@ -76,8 +80,8 @@ npm test
 
 **NOTE:** If you want to execute individual tests such as `npm run test:okta-hosted-login`, you will need to update the environment by running the following node script:
 
-```
+```javascript
 node scripts/setup-env.js
 ```
 
-**NOTE:** If you want to test using a different org or client app, you need to delete the configuration files `custom-login/src/app/.samples.config.ts` and `okta-hosted-login/src/app/.samples.config.ts`, and start from [first step](#running-e2e-tests-locally-before-commits)
+**NOTE:** If you want to test a different org or client app, you need to delete the configuration files `custom-login/src/app/.samples.config.ts` and `okta-hosted-login/src/app/.samples.config.ts`, and start from [first step](#running-e2e-tests-locally-before-commits)
