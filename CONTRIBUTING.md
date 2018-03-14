@@ -79,3 +79,5 @@ npm test
 ```
 node scripts/setup-env.js
 ```
+
+**NOTE:** If you want to test using a different org or client app, you need to delete the configuration files `custom-login/src/app/.samples.config.ts` and `okta-hosted-login/src/app/.samples.config.ts`, and start from [first step](#running-e2e-tests-locally-before-commits)
