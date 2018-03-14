@@ -10,7 +10,7 @@ function updateConfig(directory) {
     return;
   }
 
-  const file = path.join(__dirname, '/../', directory, '/src/app/.samples.config.ts');
+  const file = path.join(__dirname, '..', directory, '/src/app/.samples.config.ts');
   const data = fs.readFileSync(file, 'utf8');
   let result = data.replace(/{clientId}/g, process.env.CLIENT_ID);
   result = result.replace(/https:\/\/{yourOktaDomain}.com\/oauth2\/default/g, process.env.ISSUER);
@@ -18,7 +18,7 @@ function updateConfig(directory) {
 }
 
 function cloneRepository(repository, directory) {
-  const dir = path.join(__dirname, '/../', directory);
+  const dir = path.join(__dirname, '..', directory);
   if (fs.existsSync(dir)) {
     console.log(`${directory} is already cloned.`);
     return;
