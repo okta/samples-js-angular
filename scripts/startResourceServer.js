@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 const path = require('path');
 
 function startResourceServer() {
-  const dir = path.join(__dirname, '../samples-java-spring-mvc');
+  const dir = path.join(__dirname, '..', 'samples-java-spring-mvc')
   if (!fs.existsSync(dir)) {
     console.error(`[ERROR] samples-java-spring-mvc doesn't exist.`);
     return;
