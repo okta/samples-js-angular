@@ -21,14 +21,14 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class AppComponent {
   title = 'app';
+  isAuthenticated: boolean;
   constructor(public oktaAuth: OktaAuthService, private router: Router) {
-
+    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated)
   }
-  ngOnInit() {
-
+  async ngOnInit() {
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
   logout() {
-    this.oktaAuth.logout();
-    this.router.navigate(['/']);
+    this.oktaAuth.logout('/');
   }
 }

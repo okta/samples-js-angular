@@ -28,11 +28,12 @@ export class ProfileComponent implements OnInit {
   claims: Array<Claim>
 
   constructor(public oktaAuth: OktaAuthService) {
-    this.idToken = this.oktaAuth.getIdToken();
-    this.claims = Object.entries(this.idToken.claims).map(entry => ({ claim: entry[0], value: entry[1] }));
+
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const userClaims = await this.oktaAuth.getUser();
+    this.claims = Object.entries(userClaims).map(entry => ({ claim: entry[0], value: entry[1] }));
   }
 
 }
