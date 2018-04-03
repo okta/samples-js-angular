@@ -32,10 +32,13 @@ export class MessagesComponent implements OnInit {
 
   constructor(public oktaAuth: OktaAuthService, private http: HttpClient) {
     this.messages = [];
-    const accessTokenResponse = oktaAuth.getAccessToken();
+  }
+
+  async ngOnInit() {
+    const accessToken = await this.oktaAuth.getAccessToken();
     this.http.get(sampleConfig.resourceServer.messagesUrl, {
       headers: {
-        Authorization: 'Bearer ' + accessTokenResponse.accessToken,
+        Authorization: 'Bearer ' + accessToken,
       }
     }).subscribe((data: any) => {
       let index = 1;
@@ -55,8 +58,4 @@ export class MessagesComponent implements OnInit {
       this.failed = true;
     });
   }
-
-  ngOnInit() {
-  }
-
 }

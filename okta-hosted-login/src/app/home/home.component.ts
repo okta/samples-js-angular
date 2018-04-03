@@ -24,12 +24,11 @@ interface ResourceServerExample {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  idToken: Object;
   resourceServerExamples: Array<ResourceServerExample>;
+  userName: string;
+  isAuthenticated: boolean;
 
   constructor(public oktaAuth: OktaAuthService) {
-    const accessToken = this.oktaAuth.getAccessToken();
-    this.idToken = this.oktaAuth.getIdToken();
     this.resourceServerExamples = [
       {
         label: 'Node/Express Resource Server Example',
@@ -40,9 +39,18 @@ export class HomeComponent implements OnInit {
         url: 'https://github.com/okta/samples-java-spring-mvc/tree/master/resource-server',
       },
     ]
+    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated)
   }
 
-  ngOnInit() {
+  login() {
+    this.oktaAuth.loginRedirect()
+  }
 
+  async ngOnInit() {
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    if (this.isAuthenticated) {
+      const userClaims = await this.oktaAuth.getUser();
+      this.userName = userClaims.name;
+    }
   }
 }
