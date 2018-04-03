@@ -4,6 +4,9 @@ const fs = require('fs');
 const { exec } = require('child_process');
 const path = require('path');
 
+// Users can also provide the testenv configuration at the root folder
+require('dotenv').config({path: path.join(__dirname, '..', 'testenv')});
+
 function startResourceServer() {
   const dir = path.join(__dirname, '..', 'samples-java-spring-mvc')
   if (!fs.existsSync(dir)) {
