@@ -7,7 +7,7 @@
       &nbsp;
       Okta-Angular Sample Project
     </a>
-    <a class="item" *ngIf="!isAuthenticated" routerLink="/login">Login</a>
+    <a class="item" *ngIf="!isAuthenticated" routerLink="/account/login">Login</a>
     <a id="messages-button" class="item" *ngIf="isAuthenticated" routerLink="/messages"><i aria-hidden="true" class="mail outline icon"></i>Messages</a>
     <a id="profile-button" class="item" *ngIf="isAuthenticated" routerLink="/profile">Profile</a>
     <a id="logout-button" class="item" *ngIf="isAuthenticated" (click)="logout()">Logout</a>

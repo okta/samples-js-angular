@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
           'primaryauth.title': 'Sign in to Angular & Company',
         },
       },
+      features: {
+        router: true,
+      },
       authParams: {
         responseType: ['id_token', 'token'],
         issuer: sampleConfig.oidc.issuer,

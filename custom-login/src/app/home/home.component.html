@@ -14,7 +14,7 @@
     Once you have logged in you will be redirected through your authorization server (the issuer defined in config) to create a session for Single-Sign-On (SSO).
     After this you will be redirected back to the application with an ID Token and Access Token. The tokens will be stored in local storage for future use.
   </p>
-  <button id="login-button" class="ui primary button" role="button" routerLink="/login">Login</button>
+  <button id="login-button" class="ui primary button" role="button" routerLink="/account/login">Login</button>
 </div>
 
 <div *ngIf="isAuthenticated && userName">
