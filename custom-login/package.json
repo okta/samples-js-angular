@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "test": "echo 'Tests not yet implemented' && exit 1",
+    "test": "npm run lint && npm run test:custom-login --prefix ../",
     "lint": "ng lint",
     "postinstall": "node post-install.js"
   },
