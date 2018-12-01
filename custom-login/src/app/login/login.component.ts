@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       logo: '/assets/angular.svg',
       i18n: {
         en: {
-          'primaryauth.title': 'Sign in to Angular & Company',
+          'primaryauth.title': 'Sign in to CMPE172 Angular App',
         },
       },
       authParams: {

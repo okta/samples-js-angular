@@ -44,6 +44,9 @@ export class HomeComponent implements OnInit {
 
   login() {
     this.oktaAuth.loginRedirect()
+    if(this.isAuthenticated){
+      console.log('is authenticated');
+    }
   }
 
   async ngOnInit() {
