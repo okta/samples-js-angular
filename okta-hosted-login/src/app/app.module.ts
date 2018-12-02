@@ -12,7 +12,9 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; 
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import {
   OktaAuthGuard,
@@ -26,6 +28,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SalaryComponent } from './salary/salary.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
   {
@@ -46,6 +50,16 @@ const appRoutes: Routes = [
     component: MessagesComponent,
     canActivate: [ OktaAuthGuard ],
   },
+  {
+    path: 'salary',
+    component: SalaryComponent,
+    canActivate: [ OktaAuthGuard ],
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    canActivate: [ OktaAuthGuard ],
+  }
 ];
 
 @NgModule({
@@ -53,13 +67,16 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    MessagesComponent
+    MessagesComponent,
+    SalaryComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     OktaAuthModule.initAuth(config.oidc),
     RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

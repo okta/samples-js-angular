@@ -1,0 +1,59 @@
+<h1 class="ui header">
+  <i aria-hidden="true" class="list icon"></i> Employee Database (MySQL)
+</h1>
+
+<p>This accesses the employee SQL files that are being hosted on AWS Relational Database Service.</p>
+
+<div>
+	<p>
+    <label>Search by ID: </label>
+    <input type="text"
+    class="form-control"
+    [(ngModel)]="inputID"
+    (input) = "checkIDString(inputID)">
+    
+    <button class="btn"
+    class="ui primary button" role="button"
+    [disabled]="stringInvalid"
+    (click)="onIDSearch()">OK
+    </button>
+    </p>
+
+    <p>
+    <label>Search by Last Name: </label>
+    <input type="text"
+    class="form-control"
+    [(ngModel)]="searchQuery"
+    (input) = "checkQueryString(searchQuery)">
+    
+    <button class="btn"
+    class="ui primary button" role="button"
+    [disabled]="stringIsEmpty"
+    (click)="onNameSearch(searchQuery)">OK
+    </button>
+    </p>
+</div>
+
+
+<table class="ui table">
+  <thead>
+    <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Birth Date</th>
+    <th>Gender</th>
+    <th>Hire Date</th>
+    <th>Employee No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+	<td>{{employee.first_name}}</td>
+    <td>{{employee.last_name}}</td>
+    <td>{{employee.birth_date}}</td>
+    <td>{{employee.gender}}</td>
+    <td>{{employee.hire_date}}</td>
+    <td>{{employee.emp_no}}</td>
+    </tr>
+  </tbody>
+</table>

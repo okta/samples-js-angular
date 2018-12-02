@@ -9,6 +9,7 @@
 <p>
   This route is protected with the <code>OktaAuthGuard</code> component, which will ensure that this page cannot be accessed until you have authenticated.
 </p>
+
 <table class="ui table">
   <thead>
     <tr>
@@ -17,9 +18,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let claim of claims">
+    <tr *ngFor="let claim of relevantClaims">
       <td>{{claim.claim}}</td>
       <td id="claim-{{claim.claim}}">{{claim.value}}</td>
     </tr>
   </tbody>
 </table>
+
+
+<label>Name: </label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="relevantClaims[0].value"
+    (input)="checkQueryString(relevantClaims[0].value)"
+  />
+
+  <button class="btn" class="ui primary button" role="button" [disabled]="stringInvalid" (click)="updateName()">
+    Update
+  </button>

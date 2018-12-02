@@ -1,18 +1,14 @@
-<h1 class="ui header">Implicit Flow w/ Okta Hosted Login Page</h1>
+<h1 class="ui header">PORT69: Enterprise Application</h1>
 <div *ngIf="!isAuthenticated">
-  <p>If you‘re viewing this page then you have successfully started this Angular application.</p>
-  <p>This example shows you how to use the
-    <a href="https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular">Okta Angular Library</a> to add the
-    <a href="https://developer.okta.com/authentication-guide/implementing-authentication/implicit">Implicit Flow</a> to your application.</p>
-  <p>When you click the login button below, you will be redirected to the login page on your Okta org. After you authenticate,
-    you will be returned to this application with an ID Token and Access Token. These tokens will be stored in local storage
-    and can be retrieved at a later time.</p>
+  <p>This is our final project for CMPE172: Enterprise Software Applications with Professor Bond at SJSU for Fall 2018.</p>
+  <p>The application currently running was built using Angular 6 with SSO integrated with Okta. Tokens are stored in local storage.
+ </p>
   <button id="login-button" class="ui primary button" role="button" (click)="login()">Login</button>
 </div>
 
 <div *ngIf="isAuthenticated && userName">
   <p>Welcome back, {{ userName }}!</p>
-  <p>
+  <!-- <p>
     You have successfully authenticated against your Okta org, and have been redirected back to this application.  You now have an ID Token and access token in local storage.
     Visit the <a href="/profile">My Profile</a> page to take a look inside the ID Token.
   </p>
@@ -28,5 +24,19 @@
   <ul>
     <li *ngFor="let example of resourceServerExamples"><a href="{{example.url}}">{{example.label}}</a></li>
   </ul>
-  <p>Once you have downloaded and started the example resource server, you can visit the <a href="/messages">My Messages</a> page to see the authentication process in action.</p>
+  <p>Once you have downloaded and started the example resource server, you can visit the <a href="/messages">My Messages</a> page to see the authentication process in action.</p> -->
+
+  Applications:
+  <br>
+  <a href="https://dev-838726.oktapreview.com/home/twitter/0oahzouzgwVMK1fzs0h7/150?fromHome=true">Twitter</a>
+  <br>
+  <br>
+
+  Tools:
+  <br>
+  <a href="http://104.248.178.198:8080/">Jenkins</a>
+  <br>
+  <a href="https://dev-838726.oktapreview.com/home/digitalocean/0oahzp9l1pTU9Sp6t0h7/5357?fromHome=true">Digital Ocean</a>
+  <br>
 </div>
+

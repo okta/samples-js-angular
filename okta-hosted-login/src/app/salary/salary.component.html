@@ -1,0 +1,66 @@
+<h1 class="ui header">
+  <i aria-hidden="true" class="money icon"></i> Employee Salary
+</h1>
+
+<p>Here, you can view an employee's salary history, or terminate their salaries. This will mark the end date of their most recent salary as today's date.</p>
+
+<p>Administrators can also add salaries to desired employees.</p>
+
+<div>
+	<p>
+  <label>Employee ID: </label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="inputID"
+    (input)="checkIDString(inputID)"
+  />
+
+  <button class="btn" class="ui primary button" role="button" [disabled]="stringInvalid" (click)="onIDSearch()">
+    Get Employee Salary History
+  </button>
+
+  <button class="btn" class="ui primary button" role="button" [disabled]="stringInvalid" (click)="onModifyEndDate()">
+    Terminate Salary
+  </button>
+  </p>
+  
+  
+<p>
+  <label>Salary: </label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="newSalary"
+    (input)="checkNewSalaryString(newSalary)"
+  />
+  <button
+    class="btn"
+    class="ui primary button" role="button"
+    [disabled]="inputsInvalid"
+    (click)="onModifyEndDateAndAddSalary()"
+  >
+    Add Salary
+  </button>
+  </p>
+</div>
+
+
+<table class="ui table">
+  <thead>
+    <tr>
+    <th>Employee Number</th>
+    <th>Salary</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let salary of salaries">
+    <td>{{ salary.emp_no }}</td>
+    <td id="salary-{{salary.emp_no}}">{{salary.salary}}</td>
+    <td>{{ salary.from_date }}</td>
+    <td>{{ salary.to_date }}</td>
+    </tr>
+  </tbody>
+</table>
