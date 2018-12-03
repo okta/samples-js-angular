@@ -20,7 +20,7 @@ npm install; '''
     }
     stage('Deploy') {
       steps {
-        sh 'echo "Deploying..."; cd docker; sudo docker-compose build; sudo docker-compose up'
+        sh 'echo "Deploying..."; cd docker; sudo docker-compose build; sudo nohup docker-compose up &'
       }
     }
   }
