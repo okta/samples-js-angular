@@ -13,3 +13,5 @@ Please find the sample that fits your use-case from the table below.
 
 
 [Okta Angular Library]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
+
+Credits for SSL: https://medium.com/@rubenvermeulen/running-angular-cli-over-https-with-a-trusted-certificate-4a0d5f92747a

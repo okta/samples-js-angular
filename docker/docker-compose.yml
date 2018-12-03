@@ -1,0 +1,13 @@
+version: '2' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  angular: # name of the first service
+    build: landingpage-client # specify the directory of the Dockerfile
+    ports:
+      - "1234:1234" # specify port forewarding
+
+  express: #name of the second service
+    build: okta-server # specify the directory of the Dockerfile
+    ports:
+      - "5000:5000" #specify ports forewarding
