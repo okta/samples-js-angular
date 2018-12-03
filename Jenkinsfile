@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh 'echo "Setup.."'
+        sh '''whoami; 
+ echo "Setting up environment..."; npm install;'''
       }
     }
   }
