@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --ssl true",
     "build": "ng build --prod",
     "test": "npm run lint && npm run test:okta-hosted-login --prefix ../",
     "lint": "ng lint",

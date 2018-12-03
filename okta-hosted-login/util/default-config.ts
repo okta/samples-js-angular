@@ -1,11 +1,11 @@
 export default {
   oidc: {
-    clientId: '{clientId}',
-    issuer: 'https://{yourOktaDomain}.com/oauth2/default',
-    redirectUri: 'http://localhost:8080/implicit/callback',
-    scope: 'openid profile email',
+    clientId: "0oahyygobyKQWaomA0h7",
+    issuer: "https://dev-838726.oktapreview.com",
+    redirectUri: "https://localhost:4200/implicit/callback",
+    scope: "openid profile email"
   },
   resourceServer: {
-    messagesUrl: 'http://localhost:8000/api/messages',
-  },
+    messagesUrl: "http://localhost:8000/api/messages"
+  }
 };
