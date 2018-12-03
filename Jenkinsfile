@@ -13,7 +13,7 @@ pipeline {
 echo "Building..."; ng build; 
 mv dist ../docker/landing-page;
 cd ../server;
-mv * ../docker/okta-server;  
+cp * ../docker/okta-server;  
 cd ../docker/okta-server; 
 npm install; '''
       }
