@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'cd TwitterApp; echo "Building..."; ng build; '
+        sh 'cd okta-hosted-login; echo "Building..."; ng build; '
       }
     }
   }
