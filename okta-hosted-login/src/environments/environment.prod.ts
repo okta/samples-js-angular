@@ -11,5 +11,6 @@
  */
 
 export const environment = {
-  production: true
+  production: true,
+  api: 'http://104.248.178.198:5000/api'
 };
