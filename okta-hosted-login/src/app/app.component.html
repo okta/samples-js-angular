@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<div class="ui inverted top fixed menu">
+<div class="ui top fixed menu">
   <div class="ui container">
     <a routerLink="/" class="header item">
       <img class="ui mini image" src="/assets/angular.svg">
@@ -8,6 +8,24 @@
       PORT69 Portal
     </a>
     <a class="item" *ngIf="!isAuthenticated" (click)="login()">Login</a>
+
+
+  <div *ngIf="isAuthenticated" class="ui simple dropdown item">
+    Applications
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="header">Social Media</div>
+      <a href="https://twitter.com"><div class="item">Twitter</div></a>
+      
+      <a href="http://localhost:1234"><div class="item">HW#2</div></a>
+
+      <div class="divider"></div>
+      <div class="header">Developer Tools</div>
+      <a href="http://104.248.178.198:8080"><div class="item">Jenkins</div></a>
+      <a href="https://dev-838726.oktapreview.com/home/digitalocean/0oahzp9l1pTU9Sp6t0h7/5357?fromHome=true"><div class="item">Digital Ocean</div></a>
+    </div>
+  </div>
+
     <a id="home-button" class="item" *ngIf="isAuthenticated" routerLink="/"><i aria-hidden="true" class="home icon"></i>Home</a>
     <a id="profile-button" class="item" *ngIf="isAuthenticated" routerLink="/profile">Profile</a>
 
