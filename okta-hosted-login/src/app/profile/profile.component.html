@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let claim of relevantClaims">
+    <tr *ngFor="let claim of claims">
       <td>{{claim.claim}}</td>
       <td id="claim-{{claim.claim}}">{{claim.value}}</td>
     </tr>
@@ -26,7 +26,7 @@
 </table>
 
 
-<label>Name: </label>
+<!-- <label>Name: </label>
   <input
     type="text"
     class="form-control"
@@ -36,4 +36,4 @@
 
   <button class="btn" class="ui primary button" role="button" [disabled]="stringInvalid" (click)="updateName()">
     Update
-  </button>
+  </button> -->

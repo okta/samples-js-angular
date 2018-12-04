@@ -16,11 +16,11 @@
     (input)="checkIDString(inputID)"
   />
 
-  <button class="btn" class="ui primary button" role="button" [disabled]="stringInvalid" (click)="onIDSearch()">
+  <button class="btn" class="small ui orange button" role="button" [disabled]="stringInvalid" (click)="onIDSearch()">
     Get Employee Salary History
   </button>
 
-  <button class="btn" class="ui primary button" role="button" [disabled]="stringInvalid" (click)="onModifyEndDate()">
+  <button class="btn" class="small ui red button" role="button" [disabled]="stringInvalid" (click)="onModifyEndDate()">
     Terminate Salary
   </button>
   </p>
@@ -36,7 +36,7 @@
   />
   <button
     class="btn"
-    class="ui primary button" role="button"
+    class="small ui green button" role="button"
     [disabled]="inputsInvalid"
     (click)="onModifyEndDateAndAddSalary()"
   >
