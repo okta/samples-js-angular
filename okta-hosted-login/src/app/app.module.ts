@@ -26,7 +26,6 @@ import config from './.samples.config';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SalaryComponent } from './salary/salary.component';
 import { SearchComponent } from './search/search.component';
@@ -46,11 +45,6 @@ const appRoutes: Routes = [
     canActivate: [ OktaAuthGuard ],
   },
   {
-    path: 'messages',
-    component: MessagesComponent,
-    canActivate: [ OktaAuthGuard ],
-  },
-  {
     path: 'salary',
     component: SalaryComponent,
     canActivate: [ OktaAuthGuard ],
@@ -67,7 +61,6 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    MessagesComponent,
     SalaryComponent,
     SearchComponent
   ],
@@ -82,3 +75,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

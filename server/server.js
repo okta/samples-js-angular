@@ -13,13 +13,17 @@ const con = mysql.createConnection({
 });
 
 con.connect(err => {
-  if (err) throw err;
-  console.log("Connected!");
-
-  // Setting up the database
-  con.query("use employees", (err, result) => {
-    if (err) throw err;
-  });
+    try{
+      console.log("Connected!");
+      
+      // Setting up the database
+      con.query("use employees", (err, result) => {
+          if (err) throw err;
+      }); 
+    }
+    catch (err) {
+      console.log("MySQL connection error");
+    }
 });
 
 app.use(require("cors")());
@@ -32,19 +36,24 @@ app.use(require("body-parser").json());
 app.get("/api/salary", (req, res) => {
   let query = "select * from salaries where emp_no = " + req.query.id;
   con.query(query, (err, result) => {
-    if (err) throw err;
-
-    res.send(result);
-    console.log("/api/salary/" + req.params.id);
+    try {
+      res.send(result);
+    }
+    catch (err) {
+      console.log("Error retrieving data. Response: ", err);
+    }
   });
 });
 
 app.get("/api/employee/:id", (req, res) => {
   let query = "select * from employees where emp_no = " + req.params.id;
   con.query(query, (err, result) => {
-    if (err) throw err;
-
-    res.send(result);
+    try {
+      res.send(result);
+    }
+    catch (err) {
+      console.log("Error retrieving data. Response: ", err);
+    }
   });
 });
 
@@ -52,8 +61,13 @@ app.get("/api/employee", (req, res) => {
   let query =
     "select * from employees where last_name like '%" + req.query.q + "%'";
   con.query(query, (err, result) => {
-    if (err) throw err;
-    res.send(result);
+    try {
+      res.send(result);
+    }
+    catch (err) {
+      console.log("Error retrieving data. Response: ", err);
+    }
+
   });
 });
 
@@ -74,7 +88,7 @@ app.post("/api/salary/add", (req, res) => {
     try {
       res.send(result);
     } catch (err) {
-      console.log(err);
+      console.log("Error retrieving data. Response: ", err);
     }
   });
 });
@@ -90,9 +104,12 @@ app.put("/api/salary/modifyEndDate", (req, res) => {
     "' and to_date='9999-01-01'";
 
   con.query(query, (err, result) => {
-    if (err) throw err;
     console.log(result.warningCount);
-    res.send(result);
+    try {
+      res.send(result);
+    } catch (err) {
+      console.log("Error retrieving data. Response: ", err);
+    }
   });
 });
 
