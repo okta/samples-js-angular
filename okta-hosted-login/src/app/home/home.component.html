@@ -1,42 +1,24 @@
 <h1 class="ui header">PORT69: Enterprise Application</h1>
 <div *ngIf="!isAuthenticated">
-  <p>This is our final project for CMPE172: Enterprise Software Applications with Professor Bond at SJSU for Fall 2018.</p>
-  <p>The application currently running was built using Angular 6 with SSO integrated with Okta. Tokens are stored in local storage.
- </p>
   <button id="login-button" class="ui primary button" role="button" (click)="login()">Login</button>
 </div>
 
 <div *ngIf="isAuthenticated && userName">
   <p>Welcome back, {{ userName }}!</p>
-  <!-- <p>
-    You have successfully authenticated against your Okta org, and have been redirected back to this application.  You now have an ID Token and access token in local storage.
-    Visit the <a href="/profile">My Profile</a> page to take a look inside the ID Token.
-  </p>
-  <h3>Next Steps</h3>
-  <p>
-    Currently this application is a stand-alone front end application.
-    At this point you can use the access token to authenticate yourself against resource servers that you control.
-  </p>
-  <p>
-    This sample is designed to work with one of our resource server examples.
-    To see access token authentication in action, please download one of these resource server examples:
-  </p>
-  <ul>
-    <li *ngFor="let example of resourceServerExamples"><a href="{{example.url}}">{{example.label}}</a></li>
-  </ul>
-  <p>Once you have downloaded and started the example resource server, you can visit the <a href="/messages">My Messages</a> page to see the authentication process in action.</p> -->
 
-  Applications:
-  <br>
-  <a href="https://dev-838726.oktapreview.com/home/twitter/0oahzouzgwVMK1fzs0h7/150?fromHome=true">Twitter</a>
-  <br>
-  <br>
+  <p>This application was built for the final project of CMPE172 with Professor Bond at SJSU for Fall 2018.</p>
+  <p>Developed by Yu Ning Hee, Robert Campbell, Vivian Leung.
+ </p>
 
-  Tools:
-  <br>
-  <a href="http://104.248.178.198:8080/">Jenkins</a>
-  <br>
-  <a href="https://dev-838726.oktapreview.com/home/digitalocean/0oahzp9l1pTU9Sp6t0h7/5357?fromHome=true">Digital Ocean</a>
-  <br>
+All Technologies Used:
+ <ul>
+  <li>Angular</li>
+  <li>Express/Node</li>
+  <li>AWS RDS</li>
+  <li>Okta</li>
+  <li>Jenkins</li>
+  <li>Docker</li>
+</ul>
+
 </div>
 
