@@ -67,7 +67,7 @@ const appRoutes: Routes = [
     HomeComponent,
     ProfileComponent,
     MessagesComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +78,6 @@ const appRoutes: Routes = [
   providers: [
     { provide: OKTA_CONFIG, useValue: oktaConfig },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

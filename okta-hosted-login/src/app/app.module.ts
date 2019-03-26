@@ -15,6 +15,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import {
+  OKTA_CONFIG,
   OktaAuthGuard,
   OktaAuthModule,
   OktaCallbackComponent,
@@ -53,15 +54,17 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    MessagesComponent
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    OktaAuthModule.initAuth(config.oidc),
+    OktaAuthModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: OKTA_CONFIG, useValue: config.oidc },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
