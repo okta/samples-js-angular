@@ -1,6 +1,6 @@
 {
   "name": "@okta/samples-js-angular",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Angular Sample Applications for Okta",
   "scripts": {
     "test": "npm run test:e2e",
