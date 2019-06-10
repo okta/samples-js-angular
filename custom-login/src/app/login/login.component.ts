@@ -12,7 +12,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import * as OktaSignIn from '@okta/okta-signin-widget';
-import sampleConfig from '../.samples.config';
+import sampleConfig from '../app.config';
 
 
 @Component({

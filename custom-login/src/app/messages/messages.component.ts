@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 import { HttpClient } from '@angular/common/http';
 
-import sampleConfig from '../.samples.config';
+import sampleConfig from '../app.config';
 
 interface Message {
   date: String,
