@@ -21,7 +21,7 @@ import {
   OktaCallbackComponent,
 } from '@okta/okta-angular';
 
-import config from './.samples.config';
+import config from './app.config';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';

@@ -21,7 +21,7 @@ import {
   OktaCallbackComponent,
 } from '@okta/okta-angular';
 
-import sampleConfig from './.samples.config';
+import sampleConfig from './app.config';
 
 const oktaConfig = Object.assign({
   onAuthRequired: ({oktaAuth, router}) => {

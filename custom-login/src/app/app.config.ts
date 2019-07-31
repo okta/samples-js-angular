@@ -1,7 +1,9 @@
+const { CLIENT_ID, ISSUER } = process.env;
+
 export default {
   oidc: {
-    clientId: '{clientId}',
-    issuer: 'https://{yourOktaDomain}.com/oauth2/default',
+    clientId: `${CLIENT_ID}`,
+    issuer: `${ISSUER}`,
     redirectUri: 'http://localhost:8080/implicit/callback',
     scope: 'openid profile email',
     testing: {

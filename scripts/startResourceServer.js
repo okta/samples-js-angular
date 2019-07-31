@@ -8,9 +8,9 @@ const path = require('path');
 require('dotenv').config({path: path.join(__dirname, '..', 'testenv')});
 
 function startResourceServer() {
-  const dir = path.join(__dirname, '..', 'samples-java-spring-mvc')
+  const dir = path.join(__dirname, '..', 'samples-nodejs-express-4')
   if (!fs.existsSync(dir)) {
-    console.error(`[ERROR] samples-java-spring-mvc doesn't exist.`);
+    console.error(`[ERROR] samples-nodejs-express4 doesn't exist.`);
     return;
   }
 
@@ -19,9 +19,20 @@ function startResourceServer() {
     return;
   }
 
-  const command = `mvn -Dokta.oauth2.issuer=${process.env.ISSUER} -f samples-java-spring-mvc/resource-server/pom.xml`;
+  if (process.env.CLIENT_ID === undefined) {
+    console.error('[ERROR] Please set the CLIENT_ID Environment variable');
+    return;
+  }
 
-  exec(command, {maxBuffer: 1024 * 2000}, (err, stdout) => {
+  const command = `node ${dir}/resource-server/server.js`;
+  const options = {
+    env: {
+      ISSUER: process.env.ISSUER,
+      SPA_CLIENT_ID: process.env.CLIENT_ID,
+      PATH: process.env.PATH
+    }
+  };
+  exec(command, options, (err, stdout) => {
     if (err !== null) {
       return console.error(err);
     }
