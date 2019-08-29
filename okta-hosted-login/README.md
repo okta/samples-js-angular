@@ -1,6 +1,6 @@
 # Okta Angular + Okta Hosted Login Example
 
-This example shows you how to use the [Okta Angular Library][] to login a user to a Angular application.  The login is achieved through the [Implicit Flow][], where the user is redirected to the Okta-Hosted login page.  After the user authenticates they are redirected back to the application with an ID Token and Access Token.
+This example shows you how to use the [Okta Angular Library][] to login a user to a Angular application.  The login is achieved through the [PKCE Flow][], where the user is redirected to the Okta-Hosted login page.  After the user authenticates they are redirected back to the application with an ID Token and Access Token.
 
 This example is built with [Angular CLI][].
 
@@ -64,7 +64,7 @@ If you were able to successfully login in the previous section you can continue 
 Once you have the resource server running (it will run on port 8000) you can visit the `/messages` page within the Angular application to see the authentication flow.  The Angular application will use its stored access token to authenticate itself with the resource server, you will see this as the `Authorization: Bearer <access_token>` header on the request if you inspect the network traffic in the browser.
 
 [Angular CLI]: https://cli.angular.io/
-[Implicit Flow]: https://developer.okta.com/authentication-guide/implementing-authentication/implicit
 [Okta Angular Library]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
-[OIDC SPA Setup Instructions]: https://developer.okta.com/authentication-guide/implementing-authentication/implicit#1-setting-up-your-application
+[PKCE Flow]: https://developer.okta.com/docs/guides/implement-auth-code-pkce
+[OIDC SPA Setup Instructions]: https://developer.okta.com/docs/guides/sign-into-spa/angular/before-you-begin
 [Okta Sign In Widget]: https://github.com/okta/okta-signin-widget

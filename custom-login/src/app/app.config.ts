@@ -5,7 +5,7 @@ export default {
     clientId: `${CLIENT_ID}`,
     issuer: `${ISSUER}`,
     redirectUri: 'http://localhost:8080/implicit/callback',
-    scope: 'openid profile email',
+    scopes: ['openid', 'profile', 'email'],
     testing: {
       disableHttpsCheck: false
     }

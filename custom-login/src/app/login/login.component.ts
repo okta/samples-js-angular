@@ -39,10 +39,10 @@ export class LoginComponent implements OnInit {
         },
       },
       authParams: {
-        responseType: ['id_token', 'token'],
+        pkce: true,
         issuer: sampleConfig.oidc.issuer,
         display: 'page',
-        scopes: sampleConfig.oidc.scope.split(' '),
+        scopes: sampleConfig.oidc.scopes,
       },
     });
   }

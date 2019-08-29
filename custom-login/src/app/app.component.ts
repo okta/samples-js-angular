@@ -10,7 +10,7 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 
