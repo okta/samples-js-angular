@@ -10,9 +10,11 @@
     "custom-login-server": "npm start --prefix custom-login/",
     "test:custom-login": "export TEST_TYPE=implicit || setx TEST_TYPE \"implicit\" && protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
     "resource-server": "node scripts/startResourceServer.js",
-    "pretest": "webdriver-manager update --versions.standalone=3.141.59 --gecko false && node scripts/setup-env.js",
-    "pretest-legacy": "npm run webdriver-update-legacy && node scripts/setup-env.js",
+    "preresource-server": "npm run setup-env",
+    "pretest": "webdriver-manager update --versions.standalone=3.141.59 --gecko false && npm run setup-env",
+    "pretest-legacy": "npm run webdriver-update-legacy && npm run setup-env",
     "postinstall": "npm run install-custom-login && npm run install-okta-hosted-login",
+    "setup-env": "node scripts/setup-env.js",
     "install-custom-login": "cd custom-login && npm install",
     "install-okta-hosted-login": "cd okta-hosted-login && npm install",
     "webdriver-update-legacy": "webdriver-manager update --versions.standalone=3.141.59 --versions.chrome 2.45 --gecko false"
