@@ -1,4 +1,4 @@
-const { CLIENT_ID, ISSUER } = process.env;
+const { CLIENT_ID, ISSUER, OKTA_TESTING_DISABLEHTTPSCHECK } = process.env;
 
 export default {
   oidc: {
@@ -8,7 +8,7 @@ export default {
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
     testing: {
-      disableHttpsCheck: false
+      disableHttpsCheck: `${OKTA_TESTING_DISABLEHTTPSCHECK}`
     }
   },
   resourceServer: {
