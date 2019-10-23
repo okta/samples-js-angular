@@ -11,7 +11,7 @@
     "test:custom-login": "export TEST_TYPE=implicit || setx TEST_TYPE \"implicit\" && protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
     "resource-server": "node scripts/startResourceServer.js",
     "preresource-server": "npm run setup-env",
-    "pretest": "./scripts/updateSeDrivers.sh && npm run setup-env",
+    "pretest": "./scripts/update-se-drivers.sh && npm run setup-env",
     "pretest-legacy": "npm run webdriver-update-legacy && npm run setup-env",
     "postinstall": "npm run install-custom-login && npm run install-okta-hosted-login",
     "setup-env": "node scripts/setup-env.js",
