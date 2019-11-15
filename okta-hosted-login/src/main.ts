@@ -10,12 +10,6 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
- // polyfill TextEncoder for IE Edge
-import { TextEncoder } from 'text-encoding';
-if (typeof (window as any).TextEncoder === 'undefined') {
-  (window as any).TextEncoder = TextEncoder;
-}
-
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
