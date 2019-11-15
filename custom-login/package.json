@@ -37,6 +37,7 @@
     "@types/node": "^6.0.118",
     "codelyzer": "^5.0.1",
     "dotenv": "^8.0.0",
+    "text-encoding": "^0.7.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~3.4.5"
