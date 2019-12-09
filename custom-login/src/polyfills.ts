@@ -19,3 +19,9 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+ // polyfill TextEncoder for IE Edge
+import { TextEncoder } from 'text-encoding';
+if (typeof (window as any).TextEncoder === 'undefined') {
+  (window as any).TextEncoder = TextEncoder;
+}
