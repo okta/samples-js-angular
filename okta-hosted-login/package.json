@@ -24,7 +24,7 @@
     "core-js": "^2.4.1",
     "rxjs": "^6.5.2",
     "semantic-ui-css": "^2.2.12",
-    "tslib": "^1.9.0",
+    "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -33,8 +33,8 @@
     "@angular/cli": "^9.0.0-rc.8",
     "@angular/compiler-cli": "^9.0.0-rc.8",
     "@angular/language-service": "^9.0.0-rc.8",
-    "@types/node": "^6.0.118",
-    "codelyzer": "^5.0.1",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
     "dotenv": "^8.0.0",
     "text-encoding": "^0.7.0",
     "ts-node": "~3.2.0",
