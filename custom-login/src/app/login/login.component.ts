@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       },
       authParams: {
         pkce: true,
+        responseMode: 'query',
         issuer: sampleConfig.oidc.issuer,
         display: 'page',
         scopes: sampleConfig.oidc.scopes,

@@ -14,8 +14,8 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 
 interface ResourceServerExample {
-  label: String;
-  url: String;
+  label: string;
+  url: string;
 }
 
 @Component({
@@ -38,8 +38,8 @@ export class HomeComponent implements OnInit {
         label: 'Java/Spring MVC Resource Server Example',
         url: 'https://github.com/okta/samples-java-spring-mvc/tree/master/resource-server',
       },
-    ]
-    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated)
+    ];
+    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
 
   async ngOnInit() {

@@ -14,8 +14,8 @@ import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 
 interface Claim {
-  claim: String,
-  value: String
+  claim: string;
+  value: string;
 }
 
 @Component({
@@ -25,7 +25,7 @@ interface Claim {
 })
 export class ProfileComponent implements OnInit {
   idToken;
-  claims: Array<Claim>
+  claims: Array<Claim>;
 
   constructor(public oktaAuth: OktaAuthService) {
 

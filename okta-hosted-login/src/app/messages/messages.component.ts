@@ -17,8 +17,8 @@ import { HttpClient } from '@angular/common/http';
 import sampleConfig from '../app.config';
 
 interface Message {
-  date: String,
-  text: String,
+  date: string;
+  text: string;
 }
 
 @Component({
