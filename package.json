@@ -3,6 +3,9 @@
   "version": "0.0.3",
   "description": "Angular Sample Applications for Okta",
   "scripts": {
+    "lint:okta-hosted-login": "npm run lint --prefix okta-hosted-login/",
+    "lint:custom-login": "npm run lint --prefix custom-login/",
+    "lint": "npm run lint:okta-hosted-login && npm run lint:custom-login",
     "test": "npm run test:e2e",
     "test:e2e": "npm run test:okta-hosted-login && npm run test:custom-login",
     "okta-hosted-login-server": "npm start --prefix okta-hosted-login/",

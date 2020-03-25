@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "okta-hosted-login": {
+    "custom-login": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -53,19 +53,19 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "okta-hosted-login:build",
+            "browserTarget": "custom-login:build",
             "port": 8080
           },
           "configurations": {
             "production": {
-              "browserTarget": "okta-hosted-login:build:production"
+              "browserTarget": "custom-login:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "okta-hosted-login:build"
+            "browserTarget": "custom-login:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "okta-hosted-login-e2e": {
+    "custom-login-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -110,7 +110,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "okta-hosted-login:serve"
+            "devServerTarget": "custom-login:serve"
           }
         },
         "lint": {
@@ -127,7 +127,7 @@
       }
     }
   },
-  "defaultProject": "okta-hosted-login",
+  "defaultProject": "custom-login",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
