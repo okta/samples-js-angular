@@ -1,13 +1,15 @@
 language: node_js
-
 node_js:
-- '12.4.0'
-
+- 12.4.0
 addons:
   chrome: stable
-
 install:
 - npm install
-
 script:
 - npm test
+notifications:
+  slack:
+    if: type = cron
+    secure: VnJTY9cSUD+pZqbUax6bb8YKRqnzeFb2ZkLkEh0d6EnxCoIV2EOKO9RyDU5iOVo+MoiHFDlEHx6Yyqd3haC/64dL263iv6xpz4jOpDuGC+pVlcPZC4fTxbWJMHCw6EaOHexWYXUaTY6nbmfv2ckoEaF0+QwVuAYuZOGQN6WBY3sNmXpZx+3lwWlHpbpccEz2yBK61vdF3QEevUAqYUE1EHVszO760LwIH91dtYl4dK99ViUjnehXOSksdFSQXcgDOJAvX3TZdOL+d+UCKnAW4xWTU3siAhC3k1HHH4tWRu7w2w68zWfsBaZoLumwPXl6hknEwtK6KRQRw+hZbhqhb/AE9A4Yy9qI/wJ2CLfsR3W/zHuKfw98tmsiRO0g4X3KOvLsQ3jV/ErISvkSzbXwka+niMX8zocKuPLwN2aT2syDI5CDytCiLFhvSt2XlU0+mDHhbE+buxe29FexCtmw2HgoKOPY46Go3Z3mbWzajKMebWdkrY1QEJdEewVUe92MoSMT6ulmjiecuaUbOTArokLKaMvLW3/H/wgU8MiSHsUcuF+HUKhAvx5r4tFfofzwaSuYCaucrcXkcr9G3K8rf6DAvuAof21qx2oSo5lPsk2ASZ/RtdWDmJORYpl3M2mlyj6FsuqkmIjPERwRsGLVuzwmmu65dpEWQTh4LRapHRg=
+    on_success: never
+    on_failure: always
