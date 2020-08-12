@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   resourceServerExamples: Array<ResourceServerExample>;
   userName: string;
   isAuthenticated: boolean;
+  error: Error;
 
   constructor(public oktaAuth: OktaAuthService) {
     this.resourceServerExamples = [
@@ -42,8 +43,13 @@ export class HomeComponent implements OnInit {
     this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
 
-  login() {
-    this.oktaAuth.loginRedirect();
+  async login() {
+    try {
+      await this.oktaAuth.loginRedirect();
+    } catch (err) {
+      console.error(err);
+      this.error = err;
+    }
   }
 
   async ngOnInit() {
