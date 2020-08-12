@@ -1,3 +1,7 @@
+<div *ngIf="error" class="error">
+  {{ error }}
+</div>
+
 <h1 class="ui header">PKCE Flow w/ Okta Hosted Login Page</h1>
 <div *ngIf="!isAuthenticated">
   <p>If you‘re viewing this page then you have successfully started this Angular application.</p>
