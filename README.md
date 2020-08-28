@@ -45,9 +45,7 @@ npm run resource-server
 
 ## Running the tests
 
-In addition to the other environment vars, you will need credentials for a test user.
-Set the values for `USERNAME` and `PASSWORD` and export as shell variables. 
-(At this time, the `testenv` file is not supported)
+In addition to the other environment vars, you will need credentials for a test user. Add the values for your Okta org and user in a `testenv` file. 
 
 ```ini
 ISSUER=https://yourOktaDomain.com/oauth2/default
