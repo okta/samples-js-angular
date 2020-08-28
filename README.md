@@ -52,7 +52,7 @@ Set the values for `USERNAME` and `PASSWORD` and export as shell variables.
 ```ini
 ISSUER=https://yourOktaDomain.com/oauth2/default
 CLIENT_ID=123xxxxx123
-USERNAME=testuser
+USERNAME=testuser@email.com
 PASSWORD=testpass
 ```
 
