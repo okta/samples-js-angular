@@ -13,7 +13,7 @@ Register your application by selecting **Applications** > **Add Application**. O
 On the following screen, edit the application settings. For Angular applications running in developer mode, the port number should be 4200. Configure your app as follows:
 
 * **Base URI**: `http://localhost:4200`
-* **Login redirect URI**: `http://localhost:4200/callback` 
+* **Login redirect URI**: `http://localhost:4200/login/callback` 
 * **Logout redirect URI**: `http://localhost:4200` 
 
 Once you have completed the form, you will be given a **client ID**. You will also need the **issuer** value for your Okta org. 
