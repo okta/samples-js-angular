@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'implicit/callback',
+    path: 'login/callback',
     component: OktaCallbackComponent,
   },
   {

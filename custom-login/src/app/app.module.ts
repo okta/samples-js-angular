@@ -13,7 +13,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 import {
   OKTA_CONFIG,
   OktaAuthGuard,
@@ -24,7 +24,8 @@ import {
 import sampleConfig from './app.config';
 
 const oktaConfig = Object.assign({
-  onAuthRequired: ({oktaAuth, router}) => {
+  onAuthRequired: (oktaAuth, injector) => {
+    const router = injector.get(Router);
     // Redirect the user to your custom login page
     router.navigate(['/login']);
   }
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'implicit/callback',
+    path: 'login/callback',
     component: OktaCallbackComponent,
   },
   {
