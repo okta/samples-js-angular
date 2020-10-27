@@ -35,7 +35,7 @@ export class MessagesComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const accessToken = await this.oktaAuth.getAccessToken();
+    const accessToken = this.oktaAuth.getAccessToken();
     this.http.get(sampleConfig.resourceServer.messagesUrl, {
       headers: {
         Authorization: 'Bearer ' + accessToken,

@@ -12,5 +12,6 @@ samples-java-spring-mvc
 samples-nodejs-express-4
 testenv
 .yalc
+.yalc.lock
 .env
 .idea/
