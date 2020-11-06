@@ -41,15 +41,15 @@ export class LoginComponent implements OnInit {
         },
       },
       authParams: {
-        issuer: sampleConfig.oidc.issuer,
-        scopes: sampleConfig.oidc.scopes,
-      },
+        issuer: sampleConfig.oidc.issuer
+      }
     });
   }
 
   ngOnInit() {
     this.signIn.showSignInToGetTokens({
-      el: '#sign-in-widget'
+      el: '#sign-in-widget',
+      scopes: sampleConfig.oidc.scopes
     }).then(tokens => {
       // When navigating to a protected route, the route path will be saved as the `originalUri`
       // If no `originalUri` has been saved, then redirect back to the app root
