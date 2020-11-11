@@ -57,6 +57,10 @@ export class LoginComponent implements OnInit {
       if (originalUri === DEFAULT_ORIGINAL_URI) {
         this.oktaAuth.setOriginalUri('/');
       }
+
+      // Remove the widget
+      this.signIn.remove();
+
       // In this flow the redirect to Okta occurs in a hidden iframe
       this.oktaAuth.handleLoginRedirect(tokens);
     }).catch(err => {
