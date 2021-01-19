@@ -6,7 +6,7 @@ addons:
 install:
 - npm install
 script:
-- npm test
+- npm lint
 notifications:
   slack:
     if: type = cron

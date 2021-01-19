@@ -60,7 +60,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     OktaAuthModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: config.oidc },
