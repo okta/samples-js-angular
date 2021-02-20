@@ -6,7 +6,7 @@ addons:
 install:
 - npm install
 script:
-- npm test
+- echo "Tests not run on travis"
 notifications:
   slack:
     if: type = cron
