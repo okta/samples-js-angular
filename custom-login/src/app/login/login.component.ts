@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
       },
       authParams: {
         issuer: sampleConfig.oidc.issuer
-      }
+      },
+      useInteractionCodeFlow: false // Set to true if your org is OIE enabled
     });
   }
 
