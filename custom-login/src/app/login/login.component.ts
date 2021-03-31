@@ -17,6 +17,11 @@ import sampleConfig from '../app.config';
 
 const DEFAULT_ORIGINAL_URI = window.location.origin;
 
+let USE_INTERACTION_CODE = false;
+if (sampleConfig.oidc.useInteractionCodeFlow === 'true') {
+  USE_INTERACTION_CODE = true;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -41,8 +46,10 @@ export class LoginComponent implements OnInit {
         },
       },
       authParams: {
-        issuer: sampleConfig.oidc.issuer
-      }
+        issuer: sampleConfig.oidc.issuer,
+        scopes: sampleConfig.oidc.scopes
+      },
+      useInteractionCodeFlow: USE_INTERACTION_CODE,
     });
   }
 

@@ -12,6 +12,7 @@ if (fs.existsSync(TESTENV)) {
   });
 }
 process.env.CLIENT_ID = process.env.CLIENT_ID || process.env.SPA_CLIENT_ID;
+process.env.USE_INTERACTION_CODE = process.env.USE_INTERACTION_CODE || false;
 
 const webpack = require('webpack');
 const env = {};
@@ -20,6 +21,7 @@ const env = {};
 [
   'ISSUER',
   'CLIENT_ID',
+  'USE_INTERACTION_CODE'
 ].forEach(function (key) {
   if (!process.env[key]) {
     throw new Error(`Environment variable ${key} must be set. See README.md`);
