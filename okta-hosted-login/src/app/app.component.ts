@@ -32,11 +32,11 @@ export class AppComponent implements OnInit {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
 
-  login() {
-    this.oktaAuth.signInWithRedirect();
+  async login() {
+    await this.oktaAuth.signInWithRedirect({ originalUri: '/' });
   }
 
-  logout() {
-    this.oktaAuth.signOut();
+  async logout() {
+    await this.oktaAuth.signOut();
   }
 }

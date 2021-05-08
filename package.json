@@ -1,6 +1,6 @@
 {
   "name": "@okta/samples-js-angular",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Angular Sample Applications for Okta",
   "scripts": {
     "lint:okta-hosted-login": "npm run lint --prefix okta-hosted-login/",
