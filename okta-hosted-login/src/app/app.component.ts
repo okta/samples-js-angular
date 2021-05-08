@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   async login() {
-    await this.oktaAuth.signInWithRedirect({ originalUri: '/' });
+    await this.oktaAuth.signInWithRedirect();
   }
 
   async logout() {
