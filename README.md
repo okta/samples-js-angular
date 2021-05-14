@@ -2,7 +2,7 @@
 
 This repository contains several sample applications that demonstrate various Okta use-cases in your Angular application.
 
-Each sample makes use of the [Okta Angular Library][].
+Each sample makes use of the [Okta Angular Library](https://github.com/okta/okta-angular).
 
 If you haven't done so already, register for a free account at [developer.okta.com](https://developer.okta.com/). Select **Create Free Account** and fill in the forms to complete the registration process. Once you are done and logged in, you will see your Okta Developer Console. 
 
