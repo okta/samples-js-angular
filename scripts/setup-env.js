@@ -1,10 +1,12 @@
-/* eslint-disable consistent-return, no-console */
+/* eslint-disable no-console */
+
+'use strict';
 
 const fs = require('fs');
 const { execSync } = require('child_process');
 const path = require('path');
 
-function cloneRepository(repository, directory) {
+function cloneRepository(repository, directory, branch) {
   const dir = path.join(__dirname, '..', directory);
   if (fs.existsSync(dir)) {
     console.log(`${directory} is already cloned. Getting latest version...`);
@@ -12,7 +14,10 @@ function cloneRepository(repository, directory) {
     return;
   }
 
-  const command = `git clone ${repository}`;
+  let command = `git clone ${repository}`;
+  if (branch) {
+    command = `git clone --single-branch --branch ${branch} ${repository}`;
+  }
   console.log(`Cloning repository ${directory}`);
   execSync(command);
 }
