@@ -76,4 +76,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.signIn.remove();
+  }
+
 }
