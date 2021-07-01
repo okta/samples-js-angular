@@ -9,7 +9,7 @@ setup_service node v12.13.0
 npm config set cache-min 10
 
 # Install dependences.
-if ! npm install --ignore-scripts; then
+if ! npm install; then
   echo "npm install failed! Exiting..."
   exit ${FAILED_SETUP}
 fi
