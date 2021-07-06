@@ -1,5 +1,5 @@
 {
-  "name": "okta-hosted-login",
+  "name": "custom-login",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "^11.0.9",
     "@angular/router": "^11.0.9",
     "@okta/okta-angular": "^3.2.0",
-    "@okta/okta-signin-widget": "^5.6.0",
+    "@okta/okta-signin-widget": "^5.8.1",
     "colors": "^1.4.0",
     "core-js": "^3.6.5",
     "rxjs": "^6.6.3",
