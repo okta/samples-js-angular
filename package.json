@@ -20,7 +20,11 @@
     "setup-env": "node scripts/setup-env.js",
     "install-custom-login": "cd custom-login && npm install",
     "install-okta-hosted-login": "cd okta-hosted-login && npm install",
-    "webdriver-update-legacy": "webdriver-manager update --versions.standalone=3.141.59 --versions.chrome 2.45 --gecko false"
+    "webdriver-update-legacy": "webdriver-manager update --versions.standalone=3.141.59 --versions.chrome 2.45 --gecko false",
+  
+    "start": "npm run --prefix custom-login start",
+    "serve": "npm run --prefix custom-login serve",
+    "build": "npm run --prefix custom-login build"
   },
   "author": "",
   "license": "Apache-2.0",
