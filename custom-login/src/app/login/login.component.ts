@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       baseUrl: sampleConfig.oidc.issuer.split('/oauth2')[0],
       clientId: sampleConfig.oidc.clientId,
       redirectUri: sampleConfig.oidc.redirectUri,
-      logo: '/assets/angular.svg',
+      logo: 'assets/angular.svg',
       i18n: {
         en: {
           'primaryauth.title': 'Sign in to Angular & Company',
