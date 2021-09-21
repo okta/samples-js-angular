@@ -13,6 +13,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import {
   OKTA_CONFIG,
@@ -20,6 +21,7 @@ import {
   OktaAuthModule,
   OktaCallbackComponent,
 } from '@okta/okta-angular';
+import { environment } from '../environments/environment';
 
 import config from './app.config';
 
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     { provide: OKTA_CONFIG, useValue: config.oidc },
+    { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
   bootstrap: [AppComponent],
 })
