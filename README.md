@@ -49,11 +49,13 @@ To deploy the app, you will need an Okta org setup as described in the section a
 You will also need to replace the config values for `ISSUER` and `CLIENT_ID` in Heroku configuration based on your Okta org.
 Also be sure to add your Heroku app's base URL to the list of trusted origins in your Okta admin settings.
 
-After you deploy the app, click on **View** on the result screen to navigate to the newly deployed app.
+After you deploy the app, you will also need to go to your Okta account to [enable cors](https://developer.okta.com/docs/guides/enable-cors/granting-cors/) and configure the `login` and `logout` redirect URI in your client application settings for the newly deployed app domain if they are not preconfigured. 
 
-Click **Login** button on the app. Browser displays the sign-in page to authenticate. 
+**Note:** Due to sample apps are served under different routes, base urls will be needed for the redirect uris, e.g.`https://<myapp.heroku.com>/okta-hosted-login` or `https://<myapp.heroku.com>/custom-login`.
 
-You can use your Okta user credentials to login to the application. That's it! You've successfully logged in using Okta. 
+Finally, click on **View** on the result screen to navigate to the newly deployed app.
+
+You can use your Okta user credentials to login to the applications. That's it! You've successfully logged in using Okta. 
 
 ## Running the resource server
 The samples include a page which accesses a protected resource (messages). To start the sample resource server:
