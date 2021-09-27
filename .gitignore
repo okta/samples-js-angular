@@ -15,3 +15,7 @@ testenv
 .yalc.lock
 .env
 .idea/
+
+# sample app lock files
+yarn.lock
+package-lock.json
