@@ -32,7 +32,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let message of messages" id="message-{{message.index}}">
+      <tr *ngFor="let message of messages; let i = index" id="message-{{i}}">
         <td>{{message.date}}</td>
         <td>{{message.text}}</td>
       </tr>
