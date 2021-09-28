@@ -16,20 +16,20 @@
 // Load environment variables
 require('./env');
 
-const argv = require('minimist')(process.argv.slice(2));
+// Validate environment variables
+['CLIENT_ID', 'ISSUER', 'USERNAME', 'PASSWORD'].forEach(function(key) {
+  if (!process.env[key]) {
+    throw new Error('Environment variable "' + key + '" is not set');
+  }
+});
 
-console.log(argv);
+const argv = require('minimist')(process.argv.slice(2));
 
 var E2E_DIR = `./okta-oidc-tck/e2e-tests/${argv.sample}/`;
 var config = require(E2E_DIR + 'conf.js').config;
 config.specs = config.specs.map(function (path) {
   return E2E_DIR + path;
 });
-
-['CLIENT_ID', 'ISSUER', 'USERNAME', 'PASSWORD'].forEach(function(key) {
-  if (!process.env[key]) {
-    throw new Error('Environment variable "' + key + '" is not set');
-  }
-});
+config.SELENIUM_PROMISE_MANAGER = false;
 
 exports.config = config;
