@@ -11,7 +11,8 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
+import { OktaAuthStateService } from '@okta/okta-angular';
+import { OktaAuth } from '@okta/okta-auth-js';
 
 interface ResourceServerExample {
   label: string;
@@ -25,11 +26,11 @@ interface ResourceServerExample {
 })
 export class HomeComponent implements OnInit {
   resourceServerExamples: Array<ResourceServerExample>;
-  userName: string;
-  isAuthenticated: boolean;
-  error: Error;
+  userName: string = '';
+  isAuthenticated: boolean = false;
+  error: Error | null = null;
 
-  constructor(public oktaAuth: OktaAuthService) {
+  constructor(public authStateService: OktaAuthStateService, private oktaAuth: OktaAuth) {
     this.resourceServerExamples = [
       {
         label: 'Node/Express Resource Server Example',
@@ -40,7 +41,14 @@ export class HomeComponent implements OnInit {
         url: 'https://github.com/okta/samples-java-spring-mvc/tree/master/resource-server',
       },
     ];
-    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
+  }
+
+  async ngOnInit() {
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+    if (this.isAuthenticated) {
+      const userClaims = await this.oktaAuth.getUser();
+      this.userName = userClaims.name as string;
+    }
   }
 
   async login() {
@@ -48,15 +56,7 @@ export class HomeComponent implements OnInit {
       await this.oktaAuth.signInWithRedirect({ originalUri: '/' });
     } catch (err) {
       console.error(err);
-      this.error = err;
-    }
-  }
-
-  async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-    if (this.isAuthenticated) {
-      const userClaims = await this.oktaAuth.getUser();
-      this.userName = userClaims.name;
+      this.error = err as Error;
     }
   }
 }

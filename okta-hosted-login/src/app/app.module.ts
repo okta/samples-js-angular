@@ -15,6 +15,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { OktaAuth } from '@okta/okta-auth-js';
 import {
   OKTA_CONFIG,
   OktaAuthGuard,
@@ -29,6 +30,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
+
+const oktaAuth = new OktaAuth(config.oidc);
 
 const appRoutes: Routes = [
   {
@@ -65,7 +68,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
   ],
   providers: [
-    { provide: OKTA_CONFIG, useValue: config.oidc },
+    { provide: OKTA_CONFIG, useValue: { oktaAuth } },
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
   bootstrap: [AppComponent],

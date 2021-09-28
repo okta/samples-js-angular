@@ -3,7 +3,7 @@
 </div>
 
 <h1 class="ui header">PKCE Flow w/ Okta Hosted Login Page</h1>
-<div *ngIf="!isAuthenticated">
+<div *ngIf="!(authStateService.authState$ | async)?.isAuthenticated">
   <p>If you‘re viewing this page then you have successfully started this Angular application.</p>
   <p>This example shows you how to use the
     <a href="https://github.com/okta/okta-angular/tree/master">Okta Angular Library</a> to add the
@@ -14,7 +14,7 @@
   <button id="login-button" class="ui primary button" role="button" (click)="login()">Login</button>
 </div>
 
-<div *ngIf="isAuthenticated && userName">
+<div *ngIf="(authStateService.authState$ | async)?.isAuthenticated && userName">
   <p>Welcome back, {{ userName }}!</p>
   <p>
     You have successfully authenticated against your Okta org, and have been redirected back to this application.  You now have an ID Token and access token in local storage.
