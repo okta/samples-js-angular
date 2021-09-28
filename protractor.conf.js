@@ -30,6 +30,5 @@ var config = require(E2E_DIR + 'conf.js').config;
 config.specs = config.specs.map(function (path) {
   return E2E_DIR + path;
 });
-config.SELENIUM_PROMISE_MANAGER = false;
 
 exports.config = config;
