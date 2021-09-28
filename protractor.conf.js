@@ -16,7 +16,11 @@
 // Load environment variables
 require('./env');
 
-var E2E_DIR = '../okta-oidc-tck/e2e-tests/okta-hosted-login/';
+const argv = require('minimist')(process.argv.slice(2));
+
+console.log(argv);
+
+var E2E_DIR = `./okta-oidc-tck/e2e-tests/${argv.sample}/`;
 var config = require(E2E_DIR + 'conf.js').config;
 config.specs = config.specs.map(function (path) {
   return E2E_DIR + path;
