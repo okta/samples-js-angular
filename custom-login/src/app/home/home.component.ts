@@ -11,7 +11,8 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
+import { OktaAuthStateService } from '@okta/okta-angular';
+import { OktaAuth } from '@okta/okta-auth-js';
 
 interface ResourceServerExample {
   label: string;
@@ -24,11 +25,10 @@ interface ResourceServerExample {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  isAuthenticated: boolean;
   resourceServerExamples: Array<ResourceServerExample>;
-  userName: string;
+  userName: string = '';
 
-  constructor(public oktaAuth: OktaAuthService) {
+  constructor(private oktaAuth: OktaAuth, public authStateService: OktaAuthStateService) {
     this.resourceServerExamples = [
       {
         label: 'Node/Express Resource Server Example',
@@ -39,14 +39,13 @@ export class HomeComponent implements OnInit {
         url: 'https://github.com/okta/samples-java-spring-mvc/tree/master/resource-server',
       },
     ];
-    this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
   }
 
   async ngOnInit() {
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-    if (this.isAuthenticated) {
+    const isAuthenticated = await this.oktaAuth.isAuthenticated();
+    if (isAuthenticated) {
       const userClaims = await this.oktaAuth.getUser();
-      this.userName = userClaims.name;
+      this.userName = userClaims.name as string;
     }
   }
 }

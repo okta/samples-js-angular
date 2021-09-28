@@ -11,7 +11,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { HttpClient } from '@angular/common/http';
 
 import sampleConfig from '../app.config';
@@ -19,6 +19,7 @@ import sampleConfig from '../app.config';
 interface Message {
   date: string;
   text: string;
+  index: number;
 }
 
 @Component({
@@ -27,10 +28,10 @@ interface Message {
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-  failed: Boolean;
-  messages: Array<Message> [];
+  failed: Boolean = false;
+  messages: Message[] = [];
 
-  constructor(public oktaAuth: OktaAuthService, private http: HttpClient) {
+  constructor(public oktaAuth: OktaAuth, private http: HttpClient) {
     this.messages = [];
   }
 
@@ -42,7 +43,7 @@ export class MessagesComponent implements OnInit {
       }
     }).subscribe((data: any) => {
       let index = 1;
-      const messages = data.messages.map((message) => {
+      const messages = data.messages.map((message: Message) => {
         const date = new Date(message.date);
         const day = date.toLocaleDateString();
         const time = date.toLocaleTimeString();
