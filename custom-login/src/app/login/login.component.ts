@@ -18,11 +18,6 @@ import sampleConfig from '../app.config';
 
 const DEFAULT_ORIGINAL_URI = window.location.origin;
 
-let USE_INTERACTION_CODE = false;
-if (sampleConfig.widget.useInteractionCodeFlow === 'true') {
-  USE_INTERACTION_CODE = true;
-}
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -40,17 +35,14 @@ export class LoginComponent implements OnInit {
       baseUrl: sampleConfig.oidc.issuer.split('/oauth2')[0],
       clientId: sampleConfig.oidc.clientId,
       redirectUri: sampleConfig.oidc.redirectUri,
+      authClient: oktaAuth,
       logo: 'assets/angular.svg',
       i18n: {
         en: {
           'primaryauth.title': 'Sign in to Angular & Company',
         },
       },
-      authParams: {
-        issuer: sampleConfig.oidc.issuer,
-        scopes: sampleConfig.oidc.scopes
-      },
-      useInteractionCodeFlow: USE_INTERACTION_CODE,
+      useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true',
     });
   }
 
