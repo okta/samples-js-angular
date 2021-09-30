@@ -10,6 +10,8 @@ export default {
     testing: {
       disableHttpsCheck: `${OKTA_TESTING_DISABLEHTTPSCHECK}`
     },
+  },
+  widget: {
     useInteractionCodeFlow: `${USE_INTERACTION_CODE}`,
   },
   resourceServer: {

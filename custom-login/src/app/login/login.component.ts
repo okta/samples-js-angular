@@ -11,16 +11,12 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { OktaAuthService } from '@okta/okta-angular';
+import { OktaAuth, Tokens } from '@okta/okta-auth-js';
+// @ts-ignore
 import * as OktaSignIn from '@okta/okta-signin-widget';
 import sampleConfig from '../app.config';
 
 const DEFAULT_ORIGINAL_URI = window.location.origin;
-
-let USE_INTERACTION_CODE = false;
-if (sampleConfig.oidc.useInteractionCodeFlow === 'true') {
-  USE_INTERACTION_CODE = true;
-}
 
 @Component({
   selector: 'app-login',
@@ -29,7 +25,7 @@ if (sampleConfig.oidc.useInteractionCodeFlow === 'true') {
 })
 export class LoginComponent implements OnInit {
   signIn: any;
-  constructor(public oktaAuth: OktaAuthService) {
+  constructor(public oktaAuth: OktaAuth) {
     this.signIn = new OktaSignIn({
       /**
        * Note: when using the Sign-In Widget for an OIDC flow, it still
@@ -45,11 +41,8 @@ export class LoginComponent implements OnInit {
           'primaryauth.title': 'Sign in to Angular & Company',
         },
       },
-      authParams: {
-        issuer: sampleConfig.oidc.issuer,
-        scopes: sampleConfig.oidc.scopes
-      },
-      useInteractionCodeFlow: USE_INTERACTION_CODE,
+      authClient: oktaAuth,
+      useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true',
     });
   }
 
@@ -64,13 +57,13 @@ export class LoginComponent implements OnInit {
     this.signIn.showSignInToGetTokens({
       el: '#sign-in-widget',
       scopes: sampleConfig.oidc.scopes
-    }).then(tokens => {
+    }).then((tokens: Tokens) => {
       // Remove the widget
       this.signIn.remove();
 
       // In this flow the redirect to Okta occurs in a hidden iframe
       this.oktaAuth.handleLoginRedirect(tokens);
-    }).catch(err => {
+    }).catch((err: any) => {
       // Typically due to misconfiguration
       throw err;
     });

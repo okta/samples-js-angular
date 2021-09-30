@@ -4,7 +4,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const path = require('path');
 
-function cloneRepository(repository, directory) {
+function cloneRepository(repository, directory, branch = 'master') {
   const dir = path.join(__dirname, '..', directory);
   if (fs.existsSync(dir)) {
     console.log(`${directory} is already cloned. Getting latest version...`);
@@ -12,7 +12,7 @@ function cloneRepository(repository, directory) {
     return;
   }
 
-  const command = `git clone ${repository}`;
+  const command = `git clone --single-branch --branch ${branch} ${repository}`;
   console.log(`Cloning repository ${directory}`);
   execSync(command);
 }
