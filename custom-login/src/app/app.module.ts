@@ -33,8 +33,6 @@ import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
 
-const oktaAuth = new OktaAuth(config.oidc);
-
 const appRoutes: Routes = [
   {
     path: '',
@@ -77,14 +75,17 @@ const appRoutes: Routes = [
   providers: [
     { 
       provide: OKTA_CONFIG, 
-      useValue: {
-        oktaAuth,
-        onAuthRequired: (oktaAuth: OktaAuth, injector: Injector) => {
-          const router = injector.get(Router);
-          // Redirect the user to your custom login page
-          router.navigate(['/login']);
+      useFactory: () => {
+        const oktaAuth = new OktaAuth(config.oidc);
+        return {
+          oktaAuth,
+          onAuthRequired: (oktaAuth: OktaAuth, injector: Injector) => {
+            const router = injector.get(Router);
+            // Redirect the user to your custom login page
+            router.navigate(['/login']);
+          }  
         }
-      } 
+      }
     },
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
