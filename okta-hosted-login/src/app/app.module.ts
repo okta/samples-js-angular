@@ -31,8 +31,6 @@ import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
 
-const oktaAuth = new OktaAuth(config.oidc);
-
 const appRoutes: Routes = [
   {
     path: '',
@@ -68,7 +66,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
   ],
   providers: [
-    { provide: OKTA_CONFIG, useValue: { oktaAuth } },
+    { 
+      provide: OKTA_CONFIG, 
+      useFactory: () => {
+        const oktaAuth = new OktaAuth(config.oidc);
+        return { oktaAuth };
+      } 
+    },
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
   bootstrap: [AppComponent],
