@@ -15,7 +15,7 @@ import { Injector, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { SuiModule, SuiModalService, SuiModalModule } from '@giomamaladze/ng2-semantic-ui';
+import { SuiModalService, SuiModalModule } from '@giomamaladze/ng2-semantic-ui';
 import { OktaAuth } from '@okta/okta-auth-js';
 import {
   OKTA_CONFIG,
@@ -107,6 +107,6 @@ const appRoutes: Routes = [
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmModalComponent]
+  entryComponents: [ConfirmModalComponent],
 })
 export class AppModule { }
