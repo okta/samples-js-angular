@@ -87,7 +87,7 @@ const appRoutes: Routes = [
               // Ask the user to trigger the login process during token autoRenew process
               const modalService = injector.get(SuiModalService);
               modalService
-                .open(new ConfirmModal("Do you want to re-authenticate?", "Auth requried", "Yes", "No"))
+                .open(new ConfirmModal("Do you want to re-authenticate?", "Auth required", "Yes", "No"))
                 .onApprove(triggerLogin)
                 .onDeny(() => {});
             }
