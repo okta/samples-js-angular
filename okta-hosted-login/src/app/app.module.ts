@@ -80,7 +80,7 @@ const appRoutes: Routes = [
             const triggerLogin = async () => {
               await oktaAuth.signInWithRedirect();
             };
-            if (oktaAuth.authStateManager.getPreviousAuthState()?.isAuthenticated) {
+            if (!oktaAuth.authStateManager.getPreviousAuthState()?.isAuthenticated) {
               // App initialization stage
               triggerLogin();
             } else {
