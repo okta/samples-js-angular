@@ -14,7 +14,6 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "strictNullChecks": false,
     "target": "es2015",
     "module": "es2020",
     "lib": [
