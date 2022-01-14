@@ -19,3 +19,20 @@ if ! npm run postinstall; then
   echo "npm postinstall failed! Exiting..."
   exit ${FAILED_SETUP}
 fi
+
+# DO NOT MERGE - BETA VERSION - DO NOT MERGE
+echo "Installing BETA VERSION"
+cd ${OKTA_HOME}/${REPO}
+
+npm config set strict-ssl false
+
+pushd custom-login
+npm i https://artifacts.aue1d.saasure.com/artifactory/npm-topic/@okta/okta-auth-js/-/@okta/okta-auth-js-6.0.0-gac853bb.tgz
+popd
+
+pushd okta-hosted-login
+npm i https://artifacts.aue1d.saasure.com/artifactory/npm-topic/@okta/okta-auth-js/-/@okta/okta-auth-js-6.0.0-gac853bb.tgz
+popd
+
+echo "BETA VERSION installed"
+# End BETA VERSION
