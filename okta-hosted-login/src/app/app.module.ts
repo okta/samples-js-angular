@@ -11,10 +11,11 @@
  */
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { SuiModalService, SuiModalModule } from '@giomamaladze/ng2-semantic-ui';
 import { OktaAuth } from '@okta/okta-auth-js';
 import {
   OKTA_CONFIG,
@@ -30,6 +31,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ConfirmModalComponent, ConfirmModal } from './modal/confirm.component';
 
 const appRoutes: Routes = [
   {
@@ -58,23 +60,44 @@ const appRoutes: Routes = [
     HomeComponent,
     ProfileComponent,
     MessagesComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     OktaAuthModule,
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    SuiModalModule,
   ],
   providers: [
     { 
       provide: OKTA_CONFIG, 
       useFactory: () => {
         const oktaAuth = new OktaAuth(config.oidc);
-        return { oktaAuth };
-      } 
+        return {
+          oktaAuth,
+          onAuthRequired: (oktaAuth: OktaAuth, injector: Injector) => {
+            const triggerLogin = async () => {
+              await oktaAuth.signInWithRedirect();
+            };
+            if (!oktaAuth.authStateManager.getPreviousAuthState()?.isAuthenticated) {
+              // App initialization stage
+              triggerLogin();
+            } else {
+              // Ask the user to trigger the login process during token autoRenew process
+              const modalService = injector.get(SuiModalService);
+              modalService
+                .open(new ConfirmModal("Do you want to re-authenticate?", "Auth required", "Yes", "No"))
+                .onApprove(triggerLogin)
+                .onDeny(() => {});
+            }
+          }  
+        }
+      }
     },
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [ConfirmModalComponent],
 })
 export class AppModule { }

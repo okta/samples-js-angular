@@ -15,6 +15,7 @@ import { Injector, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { SuiModalService, SuiModalModule } from '@giomamaladze/ng2-semantic-ui';
 import { OktaAuth } from '@okta/okta-auth-js';
 import {
   OKTA_CONFIG,
@@ -32,6 +33,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ConfirmModalComponent, ConfirmModal } from './modal/confirm.component';
 
 const appRoutes: Routes = [
   {
@@ -65,12 +67,14 @@ const appRoutes: Routes = [
     ProfileComponent,
     MessagesComponent,
     LoginComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     OktaAuthModule,
+    SuiModalModule,
   ],
   providers: [
     { 
@@ -80,9 +84,22 @@ const appRoutes: Routes = [
         return {
           oktaAuth,
           onAuthRequired: (oktaAuth: OktaAuth, injector: Injector) => {
-            const router = injector.get(Router);
-            // Redirect the user to your custom login page
-            router.navigate(['/login']);
+            const triggerLogin = () => {
+              // Redirect the user to your custom login page
+              const router = injector.get(Router);
+              router.navigate(['/login']);
+            };
+            if (!oktaAuth.authStateManager.getPreviousAuthState()?.isAuthenticated) {
+              // App initialization stage
+              triggerLogin();
+            } else {
+              // Ask the user to trigger the login process during token autoRenew process
+              const modalService = injector.get(SuiModalService);
+              modalService
+                .open(new ConfirmModal("Do you want to re-authenticate?", "Auth required", "Yes", "No"))
+                .onApprove(triggerLogin)
+                .onDeny(() => {});
+            }
           }  
         }
       }
@@ -90,5 +107,6 @@ const appRoutes: Routes = [
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [ConfirmModalComponent],
 })
 export class AppModule { }
