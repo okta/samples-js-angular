@@ -10,7 +10,8 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth, Tokens } from '@okta/okta-auth-js';
 // @ts-ignore
 import * as OktaSignIn from '@okta/okta-signin-widget';
@@ -25,7 +26,7 @@ const DEFAULT_ORIGINAL_URI = window.location.origin;
 })
 export class LoginComponent implements OnInit {
   signIn: any;
-  constructor(public oktaAuth: OktaAuth) {
+  constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth) {
     this.signIn = new OktaSignIn({
       /**
        * Note: when using the Sign-In Widget for an OIDC flow, it still

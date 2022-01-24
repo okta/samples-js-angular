@@ -10,8 +10,8 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { Component } from '@angular/core';
-import { OktaAuthStateService } from '@okta/okta-angular';
+import { Component, Inject } from '@angular/core';
+import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 @Component({
@@ -22,7 +22,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 export class AppComponent {
   title = 'app';
 
-  constructor(public authStateService: OktaAuthStateService, private oktaAuth: OktaAuth) {
+  constructor(public authStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
 
   }
 

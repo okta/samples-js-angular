@@ -10,7 +10,8 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 interface ResourceServerExample {
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
   isAuthenticated: boolean = false;
   error: Error | null = null;
 
-  constructor(public oktaAuth: OktaAuth) {
+  constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth) {
     this.resourceServerExamples = [
       {
         label: 'Node/Express Resource Server Example',

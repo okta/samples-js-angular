@@ -10,12 +10,13 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 interface Claim {
   claim: string;
-  value: string;
+  value: string | number | boolean | undefined;
 }
 
 @Component({
@@ -26,7 +27,7 @@ interface Claim {
 export class ProfileComponent implements OnInit {
   claims: Claim[] = [];
 
-  constructor(public oktaAuth: OktaAuth) {
+  constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth) {
 
   }
 

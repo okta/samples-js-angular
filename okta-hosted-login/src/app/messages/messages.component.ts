@@ -10,7 +10,8 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,7 +32,7 @@ export class MessagesComponent implements OnInit {
   failed: Boolean = false;
   messages: Message[] = [];
 
-  constructor(public oktaAuth: OktaAuth, private http: HttpClient) {
+  constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth, private http: HttpClient) {
     this.messages = [];
   }
 
