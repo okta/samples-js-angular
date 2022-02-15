@@ -27,11 +27,11 @@ cd ${OKTA_HOME}/${REPO}
 npm config set strict-ssl false
 
 pushd custom-login
-npm i https://artifacts.aue1d.saasure.com/artifactory/npm-topic/@okta/okta-auth-js/-/@okta/okta-auth-js-6.1.0-gdbef8e2.tgz
+npm i https://artifacts.aue1d.saasure.com/artifactory/npm-topic/@okta/okta-auth-js/-/@okta/okta-auth-js@6.2.0-g663c7e0.tgz
 popd
 
 pushd okta-hosted-login
-npm i https://artifacts.aue1d.saasure.com/artifactory/npm-topic/@okta/okta-auth-js/-/@okta/okta-auth-js-6.1.0-gdbef8e2.tgz
+npm i https://artifacts.aue1d.saasure.com/artifactory/npm-topic/@okta/okta-auth-js/-/@okta/okta-auth-js@6.2.0-g663c7e0.tgz
 popd
 
 echo "BETA VERSION installed"
