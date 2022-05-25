@@ -13,8 +13,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth, Tokens } from '@okta/okta-auth-js';
-// @ts-ignore
-import * as OktaSignIn from '@okta/okta-signin-widget';
+import OktaSignIn from '@okta/okta-signin-widget';
 import sampleConfig from '../app.config';
 
 const DEFAULT_ORIGINAL_URI = window.location.origin;

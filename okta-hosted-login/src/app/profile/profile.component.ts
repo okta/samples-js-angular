@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
 
   async ngOnInit() {
     const userClaims = await this.oktaAuth.getUser();
-    this.claims = Object.entries(userClaims).map(entry => ({ claim: entry[0], value: entry[1] }));
+    this.claims = Object.entries(userClaims).map(entry => ({ claim: entry[0], value: JSON.stringify(entry[1]) }));
   }
 
 }
