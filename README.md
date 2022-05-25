@@ -1,4 +1,4 @@
-# Angular Sample Applications for Okta
+# Angular Sample Applications for Okta 
 
 This repository contains several sample applications that demonstrate various Okta use-cases in your Angular application.
 
