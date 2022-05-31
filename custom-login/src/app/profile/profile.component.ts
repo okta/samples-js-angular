@@ -16,7 +16,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 
 interface Claim {
   claim: string;
-  value: string | number | boolean | undefined;
+  value: unknown;
 }
 
 @Component({
