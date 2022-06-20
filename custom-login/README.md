@@ -24,7 +24,7 @@ cd samples-js-angular/custom-login
 Then install dependencies:
 
 ```bash
-npm install
+yarn install
 ```
 
 Now you need to gather the following information from the Okta Developer Console:

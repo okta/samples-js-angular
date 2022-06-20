@@ -11,7 +11,7 @@
  */
 
 /**
- * This is run after running `npm install` inside any of the samples.
+ * This is run after running `yarn install` inside any of the samples.
  *
  * It copies the specified file to the cwd of the calling process.
  */

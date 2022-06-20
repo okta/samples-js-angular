@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --deploy-url /okta-hosted-login/ --base-href /okta-hosted-login/",
-    "test": "npm run lint && npm run test:okta-hosted-login --prefix ../",
+    "test": "yarn lint && yarn --cwd .. test:okta-hosted-login",
     "lint": "ng lint"
   },
   "private": true,

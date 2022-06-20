@@ -44,11 +44,11 @@ If you do not see an exact emoji match, use the best matching emoji.
 
 E2E Tests can be run against the Custom Login and Okta-Hosted Login servers
 
-In addition to running npm install in the root of the project (to install the dev dependencies for testing), you will also need to install the dependencies of each sample app. This can be performed via the `npm install` command:
+In addition to running yarn install in the root of the project (to install the dev dependencies for testing), you will also need to install the dependencies of each sample app. This can be performed via the `yarn install` command:
 
 ```bash
 # At project root
-npm install
+yarn install
 ```
 To test both samples you will need the following configured in your developer org:
 
@@ -86,10 +86,10 @@ PASSWORD=mypassword
 Then run the E2E tests:
 
 ```bash
-npm test
+yarn test
 ```
 
-**NOTE:** If you want to execute individual tests such as `npm run test:okta-hosted-login`, you will need to update the environment by running the following node script:
+**NOTE:** If you want to execute individual tests such as `yarn test:okta-hosted-login`, you will need to update the environment by running the following node script:
 
 ```javascript
 node scripts/setup-env.js
