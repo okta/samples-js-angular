@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --deploy-url /custom-login/ --base-href /custom-login/",
-    "test": "npm run lint && npm run test:custom-login --prefix ../",
+    "test": "yarn lint && yarn --cwd .. test:custom-login",
     "lint": "ng lint"
   },
   "private": true,
@@ -47,3 +47,4 @@
     "typescript": "~4.1.5"
   }
 }
+

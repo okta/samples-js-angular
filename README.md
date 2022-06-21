@@ -61,7 +61,7 @@ You can use your Okta user credentials to login to the applications. That's it! 
 The samples include a page which accesses a protected resource (messages). To start the sample resource server:
 
 ```
-npm run resource-server
+yarn resource-server
 ```
 
 ## Running the tests

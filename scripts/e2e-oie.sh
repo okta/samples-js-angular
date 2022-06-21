@@ -31,12 +31,12 @@ export DEFAULT_TIMEOUT_INTERVAL=45000
 cd ${OKTA_HOME}/${REPO}
 
 function run_tests() {
-    npm run pretest
-    npm run test:okta-hosted-login
+    yarn pretest
+    yarn test:okta-hosted-login
     # kill app and resource servers
     kill -s TERM $(lsof -t -i:8080 -sTCP:LISTEN)
     kill -s TERM $(lsof -t -i:8000 -sTCP:LISTEN)
-    npm run test:custom-login
+    yarn test:custom-login
 }
 
 if ! run_tests; then
