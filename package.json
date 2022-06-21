@@ -51,5 +51,8 @@
   "dependencies": {
     "express": "^4.17.1"
   },
+  "resolutions": {
+    "forever-monitor/chokidar/glob-parent": "5.1.2"
+  },
   "private": true
 }
