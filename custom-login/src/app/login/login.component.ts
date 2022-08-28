@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         },
       },
       authClient: oktaAuth as any,
-      useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true',
+      useClassicEngine: sampleConfig.widget.USE_CLASSIC_ENGINE === 'true',
     });
   }
 

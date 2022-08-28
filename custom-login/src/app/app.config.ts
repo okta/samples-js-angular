@@ -1,5 +1,5 @@
 const { CLIENT_ID, ISSUER, OKTA_TESTING_DISABLEHTTPSCHECK } = process.env;
-const USE_INTERACTION_CODE = process.env.USE_INTERACTION_CODE || false;
+const USE_CLASSIC_ENGINE = process.env.USE_CLASSIC_ENGINE || false;
 
 export default {
   oidc: {
@@ -12,7 +12,7 @@ export default {
     },
   },
   widget: {
-    useInteractionCodeFlow: `${USE_INTERACTION_CODE}`,
+    USE_CLASSIC_ENGINE: `${USE_CLASSIC_ENGINE}`,
   },
   resourceServer: {
     messagesUrl: 'http://localhost:8000/api/messages',
