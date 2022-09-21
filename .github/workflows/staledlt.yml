@@ -19,7 +19,7 @@ jobs:
           echo --------BranchDetails.txt---------------
           cat ${{ github.workspace }}/BranchDetails.txt
           
-          awk 'BEGIN{ FS= "|"; OFS=","; print "Branch,Last Committer Name,Committer Date,Delete? (Y/N)"}; NR > 0{print $1, $2, $3;}' ${{ github.workspace }}/BranchDetails.txt > ${{ github.workspace }}/BranchList.csv
+          awk 'BEGIN{ FS= "|"; OFS=","; print "Branch,Last Committer Name,Committer Date"}; NR > 0{print $1, $2, $3;}' ${{ github.workspace }}/BranchDetails.txt > ${{ github.workspace }}/BranchList.csv
           
           echo --------BranchList.csv---------------
           cat ${{ github.workspace }}/BranchList.csv
