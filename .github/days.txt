@@ -1,0 +1,2 @@
+Number_of_days=90
+Headsup_duration=10
