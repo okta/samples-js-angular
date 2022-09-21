@@ -24,7 +24,8 @@ jobs:
       - name: Send notification
         run: |
           sudo apt-get install msmtp
-          cat  <<EOF >~/.msmtprc
+          
+          cat  <<EOF >.msmtprc
           # Default settings
           defaults
           auth    on
@@ -32,6 +33,7 @@ jobs:
           tls_trust_file    /etc/ssl/certs/ca-certificates.crt
           logfile ~/.msmtp.log
           EOF
+         
           echo ---------pwd,ls and .msmtprc--------------
           pwd
           ls -lrta
