@@ -49,5 +49,5 @@ jobs:
           cat .msmtprc
           
           chmod 600 .msmtprc
-          echo -e "Subject: TestMail\n\nSending regards from Terminal." | msmtp -a malavika.manoj@infosys.com
+          echo -e "Subject: TestMail\n\nSending regards from Terminal." | msmtp -a outlook malavika.manoj@infosys.com
           
