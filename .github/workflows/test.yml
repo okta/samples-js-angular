@@ -1,0 +1,13 @@
+name: REPO_NAME_TEST
+on:
+  workflow_dispatch:
+  
+jobs: 
+  Reponame:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{ github.event.repository.name }} is the repo name?
+          REPO_NAME=${{ github.event.repository.name }}
+          echo $REPO_NAME
+      
