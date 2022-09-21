@@ -1,0 +1,72 @@
+name: DLT_STALE_TWO
+on:
+  workflow_dispatch:
+    inputs: 
+      days:
+       description: 'check commit for last X number of days'
+       required: true
+       type: string 
+      headsup_duration:
+       description: 'headsup duration'
+       required: true
+       type: string  
+jobs: 
+  dltStaleBranches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete stale branches
+        run:  |
+          git clone https://github.com/2115-27/samples-js-angular.git
+            cd samples-js-angular/
+          
+          git branch -a --sort=-committerdate  --format='%(refname:short) |%(authorname)| %(committerdate:short)'>> ${{ github.workspace }}/BranchDetails.txt
+          sed -i "s~origin/~~g" ${{ github.workspace }}/BranchDetails.txt
+          sed -i "s~,~~g" ${{ github.workspace }}/BranchDetails.txt
+          
+          echo --------BranchDetails.txt---------------
+          cat ${{ github.workspace }}/BranchDetails.txt
+          
+          awk 'BEGIN{ FS= "|"; OFS=","; print "Branch,Last Committer Name,Committer Date,Delete? (Y/N)"}; NR > 0{print $1, $2, $3;}' ${{ github.workspace }}/BranchDetails.txt > ${{ github.workspace }}/BranchList.csv
+          
+          echo --------BranchList.csv---------------
+          cat ${{ github.workspace }}/BranchList.csv
+          
+          days=$(( ${{ github.event.inputs.days }} + ${{ github.event.inputs.headsup_duration }} ))
+          
+          echo "${{ github.event.inputs.headsup_duration }} is headsup duration"
+          echo ${{ github.event.inputs.days }}  
+          
+          echo ------------days with headsup duration-----------------
+          echo $days
+          
+          date_Xdays_before_TodayYear=$(date --date="$days days ago" +"%Y")
+          date_Xdays_before_TodayMonth=$(date --date="$days days ago" +"%m")
+          date_Xdays_before_TodayDay=$(date --date="$days days ago" +"%d")
+          
+          date_Xdays_before_Today="$date_Xdays_before_TodayYear-$date_Xdays_before_TodayMonth-$date_Xdays_before_TodayDay"
+          
+          echo ----------------date_Xdays_before_Today_headsup_duration_also_added-----------
+          echo $date_Xdays_before_Today
+          
+          echo --------showing dates less than "$date_Xdays_before_Today"------------
+          awk -v date_Xdays_before_Today="$date_Xdays_before_Today" '$NF < date_Xdays_before_Today' ${{ github.workspace }}/BranchList.csv  >> ${{ github.workspace }}/StaleBranchname.csv
+          
+          echo ---------StaleBranchname.csv---
+          cat ${{ github.workspace }}/StaleBranchname.csv
+          
+          echo -----------StaleBranchname2.csv-----------------
+          tail +2 ${{ github.workspace }}/StaleBranchname.csv > ${{ github.workspace }}/tmp.csv
+          cut -d ',' -f 1 ${{ github.workspace }}/tmp.csv > ${{ github.workspace }}/StaleBranchname2.csv
+          cat ${{ github.workspace }}/StaleBranchname2.csv
+          
+      - name: Deleting stale branch  
+        run: |
+          pwd
+          ls -lrta
+           file="${{ github.workspace }}/StaleBranchname2.csv"
+           for i in `cat $file`
+           do
+            echo "$i"
+            git push origin --delete $i
+           done
