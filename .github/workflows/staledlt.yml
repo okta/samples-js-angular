@@ -56,13 +56,13 @@ jobs:
           cut -d ',' -f 1 ${{ github.workspace }}/tmp.csv > ${{ github.workspace }}/StaleBranchname.csv
           cat ${{ github.workspace }}/StaleBranchname.csv
           
-#       - name: Deleting stale branch  
-#         run: |
-#           pwd
-#           ls -lrta
-#            file="${{ github.workspace }}/StaleBranchname2.csv"
-#            for i in `cat $file`
-#            do
-#             echo "$i"
-#             git push origin --delete $i
-#            done
+      - name: Deleting stale branch  
+        run: |
+           pwd
+           ls -lrta
+            file="${{ github.workspace }}/StaleBranchname2.csv"
+            for i in `cat $file`
+            do
+             echo "$i"
+             git push origin --delete $i
+            done
