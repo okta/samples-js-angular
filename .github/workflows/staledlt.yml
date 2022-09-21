@@ -9,8 +9,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Delete stale branches
         run:  |
-          git clone https://github.com/2115-27/samples-js-angular.git
-            cd samples-js-angular/
+          REPO_NAME=${{ github.event.repository.name }}
+          echo $REPO_NAME
+          git clone https://github.com/2115-27/$REPO_NAME.git
+          cd $REPO_NAME/
           
           git branch -a --sort=-committerdate  --format='%(refname:short) |%(authorname)| %(committerdate:short)'>> ${{ github.workspace }}/BranchDetails.txt
           sed -i "s~origin/~~g" ${{ github.workspace }}/BranchDetails.txt
