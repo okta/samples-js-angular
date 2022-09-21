@@ -32,6 +32,15 @@ jobs:
           tls    on
           tls_trust_file    /etc/ssl/certs/ca-certificates.crt
           logfile ~/.msmtp.log
+          # outlook
+          account    outlook
+          host       smtp.office.365.com
+          port       587
+          from       athulya.s01@infosys.com
+          user       athulya.s01@infosys.com
+          password   Gandhi@47#
+
+          account default : outlook
           EOF
          
           echo ---------pwd,ls and .msmtprc--------------
@@ -39,4 +48,6 @@ jobs:
           ls -lrta
           cat .msmtprc
           
+          chmod 600 .msmtprc
+          echo -e "Subject: TestMail\n\nSending regards from Terminal." | msmtp -a malavika.manoj@infosys.com
           
