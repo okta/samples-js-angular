@@ -1,15 +1,7 @@
 name: DLT_STALE_TWO
 on:
   workflow_dispatch:
-    inputs: 
-      days:
-       description: 'check commit for last X number of days'
-       required: true
-       type: string 
-      headsup_duration:
-       description: 'headsup duration'
-       required: true
-       type: string  
+  
 jobs: 
   dltStaleBranches:
     runs-on: ubuntu-latest
@@ -32,11 +24,15 @@ jobs:
           echo --------BranchList.csv---------------
           cat ${{ github.workspace }}/BranchList.csv
           
-          days=$(( ${{ github.event.inputs.days }} + ${{ github.event.inputs.headsup_duration }} ))
-          
-          echo "${{ github.event.inputs.headsup_duration }} is headsup duration"
-          echo ${{ github.event.inputs.days }}  
-          
+          file="${{ github.workspace }}/.github/days.txt"
+          Number_of_days=`grep Number_of_days $file |cut -d= -f2`
+          Headsup_duration=`grep Headsup_duration $file |cut -d= -f2`
+          echo ===================
+          echo $Number_of_days
+          echo $Headsup_duration is the headsup duration
+         
+          days=$(( $Number_of_days + $Headsup_duration ))
+                  
           echo ------------days with headsup duration-----------------
           echo $days
           
@@ -50,23 +46,23 @@ jobs:
           echo $date_Xdays_before_Today
           
           echo --------showing dates less than "$date_Xdays_before_Today"------------
-          awk -v date_Xdays_before_Today="$date_Xdays_before_Today" '$NF < date_Xdays_before_Today' ${{ github.workspace }}/BranchList.csv  >> ${{ github.workspace }}/StaleBranchname.csv
+          awk -v date_Xdays_before_Today="$date_Xdays_before_Today" '$NF < date_Xdays_before_Today' ${{ github.workspace }}/BranchList.csv  >> ${{ github.workspace }}/StaleBranchList.csv
           
-          echo ---------StaleBranchname.csv---
+          echo ---------StaleBranchList.csv---
+          cat ${{ github.workspace }}/StaleBranchList.csv
+          
+          echo -----------StaleBranchname.csv-----------------
+          tail +2 ${{ github.workspace }}/StaleBranchList.csv > ${{ github.workspace }}/tmp.csv
+          cut -d ',' -f 1 ${{ github.workspace }}/tmp.csv > ${{ github.workspace }}/StaleBranchname.csv
           cat ${{ github.workspace }}/StaleBranchname.csv
           
-          echo -----------StaleBranchname2.csv-----------------
-          tail +2 ${{ github.workspace }}/StaleBranchname.csv > ${{ github.workspace }}/tmp.csv
-          cut -d ',' -f 1 ${{ github.workspace }}/tmp.csv > ${{ github.workspace }}/StaleBranchname2.csv
-          cat ${{ github.workspace }}/StaleBranchname2.csv
-          
-      - name: Deleting stale branch  
-        run: |
-          pwd
-          ls -lrta
-           file="${{ github.workspace }}/StaleBranchname2.csv"
-           for i in `cat $file`
-           do
-            echo "$i"
-            git push origin --delete $i
-           done
+#       - name: Deleting stale branch  
+#         run: |
+#           pwd
+#           ls -lrta
+#            file="${{ github.workspace }}/StaleBranchname2.csv"
+#            for i in `cat $file`
+#            do
+#             echo "$i"
+#             git push origin --delete $i
+#            done
