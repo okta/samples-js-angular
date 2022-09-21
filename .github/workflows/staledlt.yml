@@ -59,7 +59,7 @@ jobs:
         run: |
            pwd
            ls -lrta
-            file="${{ github.workspace }}/StaleBranchname2.csv"
+            file="${{ github.workspace }}/StaleBranchname.csv"
             for i in `cat $file`
             do
              echo "$i"
