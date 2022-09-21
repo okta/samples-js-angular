@@ -1,13 +1,13 @@
-name: DLT_STALE_TWO
+name: STALE_NOTIFICATION
 on:
   workflow_dispatch:
   
 jobs: 
-  dltStaleBranches:
+  StaleNotification:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Delete stale branches
+      - name: Creating branch details file
         run:  |
           REPO_NAME=${{ github.event.repository.name }}
           echo $REPO_NAME
@@ -20,6 +20,7 @@ jobs:
           
           echo -----------BranchDetails.txt---------------
           cat BranchDetails.txt
+     
       - name: Send notification
         run: |
           sudo apt-get install msmtp
@@ -31,7 +32,7 @@ jobs:
           tls_trust_file    /etc/ssl/certs/ca-certificates.crt
           logfile ~/.msmtp.log
           EOF
-          echo ---------
+          echo ---------.msmtprc--------------
           cat .msmtprc
           
           
