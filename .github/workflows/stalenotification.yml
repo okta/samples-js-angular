@@ -25,7 +25,7 @@ jobs:
         run: |
           sudo apt-get install msmtp
           
-          cat  <<EOF >.msmtprc
+          cat  <<EOF >~/.msmtprc
           # Default settings
           defaults
           auth    on
@@ -43,12 +43,12 @@ jobs:
           account default : outlook
           EOF
          
-          echo ---------pwd,ls and .msmtprc--------------
+          echo ---------pwd,ls and ~/.msmtprc--------------
           pwd
           ls -lrta
-          cat .msmtprc
+          cat ~/.msmtprc
           
-          chmod 600 .msmtprc
+          chmod 600 ~/.msmtprc
           ls -lrta
           echo -e "Subject: TestMail\n\nSending regards from Terminal." | msmtp -a outlook malavika.manoj@infosys.com
           
