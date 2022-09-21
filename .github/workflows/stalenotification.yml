@@ -19,7 +19,7 @@ jobs:
           sed -i "s~,~~g" ${{ github.workspace }}/BranchDetails.txt
           
           echo -----------BranchDetails.txt---------------
-          cat BranchDetails.txt
+          cat ${{ github.workspace }}/BranchDetails.txt
      
       - name: Send notification
         run: |
