@@ -1,0 +1,37 @@
+name: DLT_STALE_TWO
+on:
+  workflow_dispatch:
+  
+jobs: 
+  dltStaleBranches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Delete stale branches
+        run:  |
+          REPO_NAME=${{ github.event.repository.name }}
+          echo $REPO_NAME
+          git clone https://github.com/2115-27/$REPO_NAME.git
+          cd $REPO_NAME/
+          
+          git branch -a --sort=-committerdate  --format='%(refname:short) |%(authorname)| %(committerdate:short)'>> ${{ github.workspace }}/BranchDetails.txt
+          sed -i "s~origin/~~g" ${{ github.workspace }}/BranchDetails.txt
+          sed -i "s~,~~g" ${{ github.workspace }}/BranchDetails.txt
+          
+          echo -----------BranchDetails.txt---------------
+          cat BranchDetails.txt
+      - name: Send notification
+        run: |
+          sudo apt-get install msmtp
+          cat  <<EOF > ~/.msmtprc
+          # Default settings
+          defaults
+          auth    on
+          tls    on
+          tls_trust_file    /etc/ssl/certs/ca-certificates.crt
+          logfile ~/.msmtp.log
+          EOF
+          echo ---------
+          cat .msmtprc
+          
+          
