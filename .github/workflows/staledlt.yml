@@ -52,8 +52,7 @@ jobs:
           cat ${{ github.workspace }}/StaleBranchList.csv
           
           echo -----------StaleBranchname.csv-----------------
-          tail +2 ${{ github.workspace }}/StaleBranchList.csv > ${{ github.workspace }}/tmp.csv
-          cut -d ',' -f 1 ${{ github.workspace }}/tmp.csv > ${{ github.workspace }}/StaleBranchname.csv
+          cut -d ',' -f 1 ${{ github.workspace }}/StaleBranchList.csv > ${{ github.workspace }}/StaleBranchname.csv
           cat ${{ github.workspace }}/StaleBranchname.csv
           
       - name: Deleting stale branch  
