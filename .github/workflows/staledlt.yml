@@ -14,7 +14,7 @@ jobs:
           git clone https://github.com/2115-27/$REPO_NAME.git
           cd $REPO_NAME/
           
-          git branch -a --sort=-committerdate  --format='%(refname:short) |%(authorname)| %(committerdate:short)'| sed /\*/d >> ${{ github.workspace }}/BranchDetails.txt
+          git branch -a --sort=-committerdate  --format='%(refname:short) |%(authorname)| %(committerdate:short)'| sed /\${{ github.ref_name }}/d >> ${{ github.workspace }}/BranchDetails.txt
           sed -i "s~origin/~~g" ${{ github.workspace }}/BranchDetails.txt
           sed -i "s~,~~g" ${{ github.workspace }}/BranchDetails.txt
           
