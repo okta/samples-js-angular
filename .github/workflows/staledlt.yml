@@ -5,6 +5,7 @@ on:
 jobs: 
   dltStaleBranches:
     runs-on: ubuntu-latest
+    environment: STALE
     steps:
       - uses: actions/checkout@v2
       - name: Get Stale branch list
