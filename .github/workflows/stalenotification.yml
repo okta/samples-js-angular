@@ -34,7 +34,7 @@ jobs:
           logfile ~/.msmtp.log
           # outlook
           account    outlook
-          host       outlook.office365.com
+          host       smtp.office.365.com
           port       587
           from       athulya.s01@infosys.com
           user       athulya.s01@infosys.com
