@@ -57,6 +57,5 @@ jobs:
            set sendmail="/usr/bin/msmtp"
            set use_from=yes
            set from=athulya.s01@infosys.com
-           EOF
            
-           echo "This is the email body" | mutt -a "BranchDetails.txt" -s "Email Subject" -- malavika.manoj@infosys.com
+           echo "This is the email body" | mutt -a "BranchDetails.txt" -s "Email Subject" -- athulya.s01@infosys.com
