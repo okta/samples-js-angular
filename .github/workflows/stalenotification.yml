@@ -37,9 +37,9 @@ jobs:
           account    outlook
           host       smtp.office.365.com
           port       587
-          from       athulya.s01@infosys.com
-          user       athulya.s01@infosys.com
-          password   Gandhi@47#
+          from       athulyams2000@outlook.com
+          user       athulyams2000@outlook.com
+          password   Athulya@2115
 
           account default : outlook
           EOF
@@ -51,11 +51,4 @@ jobs:
           
           chmod 600 ~/.msmtprc
           ls -lrta
-          sudo apt-get install mutt
-          
-           cat <<EOF >~/.muttrc
-           set sendmail="/usr/bin/msmtp"
-           set use_from=yes
-           set from=athulya.s01@infosys.com
-           
-           echo "This is the email body" | mutt -a "BranchDetails.txt" -s "Email Subject" -- athulya.s01@infosys.com
+          echo -e "Subject: Regards\n\nSending regards from Terminal." | msmtp -a outlook athulyams2000@outlook.com
