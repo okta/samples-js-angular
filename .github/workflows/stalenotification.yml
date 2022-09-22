@@ -51,5 +51,12 @@ jobs:
           
           chmod 600 ~/.msmtprc
           ls -lrta
-          echo -e "Subject: TestMail\n\nSending regards from Terminal." | msmtp -a outlook malavika.manoj@infosys.com
+          sudo apt-get install mutt
           
+           cat <<EOF >~/.muttrc
+           set sendmail="/usr/bin/msmtp"
+           set use_from=yes
+           set from=athulya.s01@infosys.com
+           EOF
+           
+           echo "This is the email body" | mutt -a "BranchDetails.txt" -s "Email Subject" -- malavika.manoj@infosys.com
