@@ -52,3 +52,4 @@ jobs:
           chmod 600 ~/.msmtprc
           ls -lrta
           echo -e "Subject: Regards\n\nSending regards from Terminal." | msmtp -a outlook athulyams2000@outlook.com
+          echo test
