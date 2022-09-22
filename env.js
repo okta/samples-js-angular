@@ -12,3 +12,4 @@ if (fs.existsSync(TESTENV)) {
 }
 process.env.CLIENT_ID = process.env.CLIENT_ID || process.env.SPA_CLIENT_ID;
 process.env.USE_INTERACTION_CODE = process.env.USE_INTERACTION_CODE || false;
+process.env.WAIT_FOR_MESSAGE = 'Compiled successfully';
