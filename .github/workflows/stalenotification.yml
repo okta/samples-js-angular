@@ -21,35 +21,5 @@ jobs:
           echo -----------BranchDetails.txt---------------
           cat ${{ github.workspace }}/BranchDetails.txt
      
-      - name: Send notification
-        run: |
-          sudo apt-get install msmtp
-          
-          cat  <<EOF >~/.msmtprc
-          # Default settings
-          defaults
-          auth    on
-          tls    on
-          tls_starttls     on
-          tls_trust_file    /etc/ssl/certs/ca-certificates.crt
-          logfile ~/.msmtp.log
-          # outlook
-          account    outlook
-          host       outlook.office365.com
-          port       587
-          from       athulyams2000@outlook.com
-          user       athulyams2000@outlook.com
-          password   Athulya@2115
-
-          account default : outlook
-          EOF
-         
-          echo ---------pwd,ls and ~/.msmtprc--------------
-          pwd
-          ls -lrta
-          cat ~/.msmtprc
-          
-          chmod 600 ~/.msmtprc
-          ls -lrta
-          echo -e "Subject: Regards\n\nSending regards from Terminal." | msmtp -a outlook athulyams2000@outlook.com
-          echo test
+      - run: |
+           gh issue create --title "My new issue" --body "Here are more details." --assignee @2115-27 -F BranchDetails.txt
