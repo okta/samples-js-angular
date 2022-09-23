@@ -23,3 +23,5 @@ jobs:
      
       - run: |
            gh issue create --title "My new issue" --body "Here are more details." --assignee @2115-27 -F BranchDetails.txt
+        env:
+             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
