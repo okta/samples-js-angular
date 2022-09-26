@@ -15,3 +15,4 @@ testenv
 yalc.lock
 .env
 .idea/
+.angular/
