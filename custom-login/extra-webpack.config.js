@@ -21,6 +21,7 @@ const env = {};
 [
   'ISSUER',
   'CLIENT_ID',
+  'USE_CLASSIC_ENGINE',
 ].forEach(function (key) {
   if (!process.env[key]) {
     throw new Error(`Environment variable ${key} must be set. See README.md`);
