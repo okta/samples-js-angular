@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
           'primaryauth.title': 'Sign in to Angular & Company',
         },
       },
-      authClient: oktaAuth as any,
-      useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true',
+      authClient: oktaAuth,
+      useClassicEngine: sampleConfig.widget.USE_CLASSIC_ENGINE === 'true',
     });
   }
 
