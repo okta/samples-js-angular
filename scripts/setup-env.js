@@ -17,6 +17,12 @@ function cloneRepository(repository, directory, branch = 'master') {
   execSync(command);
 }
 
+function installDependencies(directory) {
+  const dir = path.resolve(__dirname, '..', directory);
+  execSync(`cd ${dir} && npm install`);
+}
+
 cloneRepository('https://github.com/okta/samples-nodejs-express-4.git', 'samples-nodejs-express-4');
 execSync(`cd ${path.join(__dirname, '..', 'samples-nodejs-express-4')} && npm install --unsafe-perm`);
 cloneRepository('https://github.com/okta/okta-oidc-tck.git', 'okta-oidc-tck');
+installDependencies('okta-oidc-tck/e2e-tests');
