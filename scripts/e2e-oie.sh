@@ -12,13 +12,7 @@ export ORG_OIE_ENABLED=true # This flag ensures the TCK tests run OIE tests
 export ISSUER=https://oie-signin-widget.okta.com/oauth2/default
 export CLIENT_ID=0oa8lrg7ojTsbJgRQ696
 export USERNAME=george@acme.com
-export EMAIL_MFA_USERNAME=email-login@email.ghostinspector.com
-get_secret prod/okta-sdk-vars/password PASSWORD
-export SMS_MFA_USERNAME=sms-login@okta.com
-get_secret prod/okta-sdk-vars/twilio_account TWILIO_ACCOUNT
-get_secret prod/okta-sdk-vars/twilio_api_token TWILIO_API_TOKEN
-export FB_USERNAME=ycfjikukbl_1613767309@tfbnw.net
-get_secret prod/okta-sdk-vars/fb_password FB_PASSWORD
+get_vault_secret_key devex/samples-javascript password PASSWORD
 export DEFAULT_TIMEOUT_INTERVAL=45000
 
 if ! run_tests; then
