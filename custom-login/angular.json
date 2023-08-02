@@ -35,7 +35,24 @@
               "node_modules/semantic-ui-css/semantic.min.css",
               "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@giomamaladze/ng2-semantic-ui",
+              "bowser",
+              "date-fns/locale/en-US",
+              "extend",
+              "is-ua-webview",
+              "ts-input-mask",
+              "p-cancelable",
+              "cross-fetch",
+              "tiny-emitter",
+              "clipboard",
+              "jquery",
+              "@sindresorhus/to-milliseconds",
+              "parse-ms",
+              "q",
+              "detect-node"
+            ]
           },
           "configurations": {
             "production": {
@@ -45,8 +62,14 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
@@ -58,7 +81,7 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "custom-login:build",
+            "browserTarget": "custom-login:build:production",
             "port": 8080
           },
           "configurations": {
