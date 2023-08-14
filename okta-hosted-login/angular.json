@@ -68,18 +68,36 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "develop": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
           }
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "okta-hosted-login:build:production",
+            "browserTarget": "okta-hosted-login:build:develop",
             "port": 8080
           },
           "configurations": {
             "production": {
               "browserTarget": "okta-hosted-login:build:production"
+            },
+            "develop": {
+              "browserTarget": "okta-hosted-login:build:develop"
             }
           }
         },
