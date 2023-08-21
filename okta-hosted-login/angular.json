@@ -34,7 +34,18 @@
               "src/styles.css",
               "node_modules/semantic-ui-css/semantic.min.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "bowser",
+              "date-fns/locale/en-US",
+              "extend",
+              "is-ua-webview",
+              "ts-input-mask",
+              "p-cancelable",
+              "cross-fetch",
+              "tiny-emitter",
+              "detect-node"
+            ]
           },
           "configurations": {
             "production": {
@@ -44,8 +55,29 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "develop": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
@@ -57,12 +89,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "okta-hosted-login:build",
+            "browserTarget": "okta-hosted-login:build:develop",
             "port": 8080
           },
           "configurations": {
             "production": {
               "browserTarget": "okta-hosted-login:build:production"
+            },
+            "develop": {
+              "browserTarget": "okta-hosted-login:build:develop"
             }
           }
         },

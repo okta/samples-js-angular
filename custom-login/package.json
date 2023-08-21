@@ -23,7 +23,7 @@
     "@okta/okta-angular": "^6.0.0",
     "@okta/okta-auth-js": "7.0.2",
     "@okta/okta-signin-widget": "7.3.1",
-    "rxjs": "~7.4.0",
+    "rxjs": "~6.6.7",
     "semantic-ui-css": "^2.4.1",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.4"

@@ -1,8 +1,8 @@
 source ${OKTA_HOME}/${REPO}/scripts/setup.sh
 
-setup_service xvfb start
-setup_service java 1.8.222
-setup_service google-chrome-stable 87.0.4280.66-1
+setup_service xvfb start  &> /dev/null
+setup_service java 1.8.222  &> /dev/null
+setup_service google-chrome-stable 87.0.4280.66-1  &> /dev/null
 
 yum -y install lsof
 

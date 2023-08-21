@@ -12,7 +12,7 @@ export USE_CLASSIC_ENGINE=true # This flag ensures the TCK tests run non-OIE tes
 export ISSUER=https://samples-javascript.okta.com/oauth2/default
 export CLIENT_ID=0oapmwm72082GXal14x6
 export USERNAME=george@acme.com
-get_vault_secret_key devex/samples-javascript password PASSWORD
+get_vault_secret_key repo_gh-okta-samples-js-angular/default password PASSWORD
 
 if ! run_tests; then
   echo "e2e tests failed! Exiting..."
