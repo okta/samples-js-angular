@@ -36,7 +36,7 @@
   "bugs": "https://github.com/okta/samples-js-angular/issues",
   "homepage": "https://github.com/okta/samples-js-angular",
   "devDependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "dotenv": "^8.2.0",
     "find-process": "^1.4.3",
     "jasmine-reporters": "^2.5.0",
