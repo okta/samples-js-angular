@@ -4,7 +4,7 @@ test_suites:
       sort_order: '1'
       timeout: '10'
       script_name: e2e
-      criteria: OPTIONAL
+      criteria: MERGE
       queue_name: small
 
     - name: e2e-oie
@@ -12,5 +12,22 @@ test_suites:
       sort_order: '1'
       timeout: '10'
       script_name: e2e-oie
-      criteria: OPTIONAL
+      criteria: MERGE
       queue_name: small
+
+    - name: semgrep
+      script_path: /root/okta/samples-js-angular/scripts
+      sort_order: '3'
+      timeout: '10'
+      script_name: semgrep
+      criteria: MERGE
+      queue_name: small
+
+    - name: snyk
+      script_path: /root/okta/samples-js-angular/scripts
+      script_name: snyk
+      sort_order: '3'
+      timeout: '200'
+      criteria: MAINLINE
+      queue_name: small
+      trigger: AUTO

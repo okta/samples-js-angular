@@ -25,4 +25,5 @@ function installDependencies(directory) {
 cloneRepository('https://github.com/okta/samples-nodejs-express-4.git', 'samples-nodejs-express-4');
 execSync(`cd ${path.join(__dirname, '..', 'samples-nodejs-express-4')} && npm install --unsafe-perm`);
 cloneRepository('https://github.com/okta/okta-oidc-tck.git', 'okta-oidc-tck');
+execSync(`cd ${path.join(__dirname, '..', 'okta-oidc-tck')} && git checkout 25db149cac9f678a553d0975966eebc0724a4ad7`);   // workaround
 installDependencies('okta-oidc-tck/e2e-tests');
