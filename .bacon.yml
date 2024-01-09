@@ -22,3 +22,12 @@ test_suites:
       script_name: semgrep
       criteria: MERGE
       queue_name: small
+
+    - name: snyk
+      script_path: /root/okta/samples-js-angular/scripts
+      script_name: snyk
+      sort_order: '3'
+      timeout: '200'
+      criteria: MAINLINE
+      queue_name: small
+      trigger: AUTO
