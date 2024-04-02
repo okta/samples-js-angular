@@ -36,18 +36,18 @@
   "bugs": "https://github.com/okta/samples-js-angular/issues",
   "homepage": "https://github.com/okta/samples-js-angular",
   "devDependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.8",
     "dotenv": "^8.2.0",
     "find-process": "^1.4.3",
     "jasmine-reporters": "^2.5.0",
     "minimist": "^1.2.6",
-    "nodemon": "^2.0.20",
+    "nodemon": "^3.1.0",
     "platform": "^1.3.6",
-    "wait-on": "^7.0.1"
+    "wait-on": "^7.2.0"
   },
   "bin": {},
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.19.2"
   },
   "engines": {
     "node": ">=14.14"
