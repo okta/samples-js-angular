@@ -12,6 +12,7 @@ Register your application by selecting **Applications** > **Add Application**. O
 
 On the following screen, edit the application settings. For these sample applications we are using port number 8080. Configure your app as follows:
 
+* Avoid third-party cookies by enabling the `Refresh Token` grant type under **General Settings > Grant type > Core grants > Refresh Token**.
 * **Base URI**: `http://localhost:8080`
 * **Login redirect URI**: `http://localhost:8080/login/callback` 
 * **Logout redirect URI**: `http://localhost:8080` 
