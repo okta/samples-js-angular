@@ -60,18 +60,18 @@ const appRoutes: Routes = [
     HomeComponent,
     ProfileComponent,
     MessagesComponent,
-    ConfirmModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     OktaAuthModule,
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(appRoutes, { }),
     SuiModalModule,
   ],
   providers: [
-    { 
-      provide: OKTA_CONFIG, 
+    {
+      provide: OKTA_CONFIG,
       useFactory: () => {
         const oktaAuth = new OktaAuth(config.oidc);
         return {
@@ -91,13 +91,12 @@ const appRoutes: Routes = [
                 .onApprove(triggerLogin)
                 .onDeny(() => {});
             }
-          }  
+          }
         }
       }
     },
     { provide: APP_BASE_HREF, useValue: environment.appBaseHref },
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [ConfirmModalComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

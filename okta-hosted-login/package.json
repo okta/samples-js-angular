@@ -7,7 +7,8 @@
     "start": "ng serve",
     "build": "ng build --configuration production --base-href /okta-hosted-login/",
     "test": "npm run lint && npm run test:okta-hosted-login --prefix ../",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +20,7 @@
     "@angular/platform-browser": "~18.2.8",
     "@angular/platform-browser-dynamic": "~18.2.8",
     "@angular/router": "~18.2.8",
-    "@giomamaladze/ng2-semantic-ui": "^1.0.2",
+    "@giomamaladze/ng2-semantic-ui": "^1.0.1",
     "@okta/okta-angular": "^6.4.0",
     "@okta/okta-auth-js": "7.8.0",
     "rxjs": "~6.6.7",
