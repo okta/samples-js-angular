@@ -12,7 +12,7 @@ export ORG_OIE_ENABLED=true # This flag ensures the TCK tests run OIE tests
 export ISSUER=https://oie-signin-widget.okta.com/oauth2/default
 export CLIENT_ID=0oa8lrg7ojTsbJgRQ696
 export USERNAME=george@acme.com
-get_vault_secret_key devex/samples-javascript password PASSWORD
+get_terminus_secret "/" PASSWORD PASSWORD
 export DEFAULT_TIMEOUT_INTERVAL=45000
 
 if ! run_tests; then
