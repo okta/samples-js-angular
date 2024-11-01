@@ -21,27 +21,27 @@
     "@angular/router": "~15.2.10",
     "@giomamaladze/ng2-semantic-ui": "^1.0.1",
     "@okta/okta-angular": "^6.0.0",
-    "@okta/okta-auth-js": "7.5.0",
+    "@okta/okta-auth-js": "7.8.1",
     "rxjs": "~6.6.7",
     "semantic-ui-css": "^2.4.1",
     "tslib": "^2.4.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.13.3"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^15.0.0",
     "@angular-devkit/build-angular": "~15.2.11",
     "@angular/cli": "~15.2.11",
     "@angular/compiler-cli": "~15.2.10",
-    "@types/jasmine": "~3.6.0",
-    "@types/node": "^12.11.1",
-    "@types/text-encoding": "0.0.36",
+    "@types/jasmine": "~5.1.4",
+    "@types/node": "^22.8.6",
+    "@types/text-encoding": "0.0.39",
     "codelyzer": "^6.0.2",
-    "dotenv": "^8.2.0",
-    "jasmine-core": "~3.6.0",
-    "jasmine-spec-reporter": "~5.0.0",
+    "dotenv": "^16.4.5",
+    "jasmine-core": "~5.4.0",
+    "jasmine-spec-reporter": "~7.0.0",
     "text-encoding": "^0.7.0",
     "ts-node": "~10.9.1",
     "tslint": "~6.1.3",
-    "typescript": "~4.8.3"
+    "typescript": "~4.9.5"
   }
 }
