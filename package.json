@@ -24,8 +24,7 @@
     "build:okta-hosted-login": "cd ./okta-hosted-login && npm install --production=false && npm run build",
     "build:custom-login": "cd ./custom-login && npm install --production=false && npm run build",
     "build": "npm run build:okta-hosted-login && npm run build:custom-login",
-    "start": "node ./heroku/server.js",
-    "dev": "nodemon ./heroku/server.js"
+    "start": "node ./heroku/server.js"
   },
   "author": "",
   "license": "Apache-2.0",
@@ -36,19 +35,16 @@
   "bugs": "https://github.com/okta/samples-js-angular/issues",
   "homepage": "https://github.com/okta/samples-js-angular",
   "devDependencies": {
-    "axios": "^1.6.8",
-    "dotenv": "^8.2.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "find-process": "^1.4.3",
     "jasmine-reporters": "^2.5.0",
     "minimist": "^1.2.6",
-    "nodemon": "^3.1.0",
     "platform": "^1.3.6",
     "wait-on": "^7.2.0"
   },
   "bin": {},
-  "dependencies": {
-    "express": "^4.19.2"
-  },
   "engines": {
     "node": ">=14.14"
   },
