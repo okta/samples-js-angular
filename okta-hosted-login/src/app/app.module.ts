@@ -66,7 +66,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     OktaAuthModule,
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(appRoutes),
     SuiModalModule,
   ],
   providers: [
