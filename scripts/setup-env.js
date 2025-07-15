@@ -8,7 +8,7 @@ function cloneRepository(repository, directory, branch = 'master') {
   const dir = path.join(__dirname, '..', directory);
   if (fs.existsSync(dir)) {
     console.log(`${directory} is already cloned. Getting latest version...`);
-    execSync(`cd ${directory} && git pull`)
+    execSync(`cd ${directory} && git reset --hard && git pull`)
     return;
   }
 
