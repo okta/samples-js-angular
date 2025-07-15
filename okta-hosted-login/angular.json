@@ -141,5 +141,8 @@
       }
     }
   },
-  "defaultProject": "okta-hosted-login"
+  "defaultProject": "okta-hosted-login",
+  "cli": {
+    "analytics": false
+  }
 }
