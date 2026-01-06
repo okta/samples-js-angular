@@ -21,6 +21,7 @@ interface Claim {
 
 @Component({
   selector: 'app-profile',
+  standalone: false,
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

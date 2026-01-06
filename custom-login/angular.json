@@ -81,19 +81,19 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "custom-login:build:production",
+            "buildTarget": "custom-login:build:production",
             "port": 8080
           },
           "configurations": {
             "production": {
-              "browserTarget": "custom-login:build:production"
+              "buildTarget": "custom-login:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "custom-login:build"
+            "buildTarget": "custom-login:build"
           }
         },
         "test": {
