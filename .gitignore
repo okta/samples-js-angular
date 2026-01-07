@@ -16,3 +16,4 @@ yalc.lock
 .env
 .idea/
 .angular/
+package-lock.json
