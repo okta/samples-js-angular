@@ -89,22 +89,22 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "okta-hosted-login:build:develop",
+            "buildTarget": "okta-hosted-login:build:develop",
             "port": 8080
           },
           "configurations": {
             "production": {
-              "browserTarget": "okta-hosted-login:build:production"
+              "buildTarget": "okta-hosted-login:build:production"
             },
             "develop": {
-              "browserTarget": "okta-hosted-login:build:develop"
+              "buildTarget": "okta-hosted-login:build:develop"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "okta-hosted-login:build"
+            "buildTarget": "okta-hosted-login:build"
           }
         },
         "test": {

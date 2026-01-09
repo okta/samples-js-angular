@@ -20,6 +20,7 @@ const DEFAULT_ORIGINAL_URI = window.location.origin;
 
 @Component({
   selector: 'app-login',
+  standalone: false,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

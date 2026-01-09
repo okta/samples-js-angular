@@ -5,7 +5,7 @@ test_suites:
       timeout: '10'
       script_name: e2e
       criteria: MERGE
-      queue_name: ci-queue-productionJenga-AL2023
+      queue_name: al2023
 
     - name: e2e-oie
       script_path: /root/okta/samples-js-angular/scripts
@@ -13,15 +13,7 @@ test_suites:
       timeout: '10'
       script_name: e2e-oie
       criteria: MERGE
-      queue_name: ci-queue-productionJenga-AL2023
-
-    - name: semgrep
-      script_path: /root/okta/samples-js-angular/scripts
-      sort_order: '3'
-      timeout: '10'
-      script_name: semgrep
-      criteria: MERGE
-      queue_name: ci-queue-productionJenga-AL2023
+      queue_name: al2023
 
     - name: snyk
       script_path: /root/okta/samples-js-angular/scripts
@@ -29,5 +21,5 @@ test_suites:
       sort_order: '3'
       timeout: '200'
       criteria: MAINLINE
-      queue_name: ci-queue-productionJenga-AL2023
+      queue_name: al2023
       trigger: AUTO
