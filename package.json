@@ -35,7 +35,7 @@
   "bugs": "https://github.com/okta/samples-js-angular/issues",
   "homepage": "https://github.com/okta/samples-js-angular",
   "devDependencies": {
-    "axios": "^1.7.9",
+    "axios": "^1.15.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "find-process": "^1.4.3",
@@ -43,6 +43,9 @@
     "minimist": "^1.2.6",
     "platform": "^1.3.6",
     "wait-on": "^7.2.0"
+  },
+  "overrides": {
+    "axios": "^1.15.0"
   },
   "bin": {},
   "engines": {
